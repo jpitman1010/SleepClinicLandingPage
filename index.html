@@ -12,6 +12,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap-grid.min.css"
     integrity="sha512-Xj2sd25G+JgJYwo0cvlGWXoUekbLg5WvW+VbItCMdXrDoZRWcS/d40ieFHu77vP0dF5PK+cX6TIp+DsPfZomhw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -21,7 +22,7 @@
 <body>
     <header>
         <div clsas="container">
-            <a href="#" class="logo"><span>H</span>ealth <span>C</span>are.</a>
+            <a href="#" class="logo"><span>S</span>leep <span>M</span>edicine <span>C</span>onsultants</a>
             <nav class="nav">
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -30,6 +31,7 @@
                     <li><a href="#location">Location</a></li>
                     <li><a href="#contact">Contact Us</a></li>
                     <li><a href="#posts">Posts</a></li>
+                    <li><a href="url('https://sso.azaleahealth.com/')">patient portal</a></li>
                 </ul>
             </nav>
             <div class="fas fa-bars"></div>
@@ -38,12 +40,14 @@
     <section class="home" id="home" style="margin-top: 6rem;">
         <div class="container">
             <div class="row min-vh-100 align-items-center text-center text-md-left"> 
-                <div class="col-md-6 pr-md-5 content">
+                <div class="col-md-6 pr-md-5 content" data-aos="zoom-in">
                     <img src="./images/publicdomainq-doc2.svg" width="100%" alt="Panoramic Austin View">
                 </div>
-                <div class="col-md-6 pl-md-5 content">
+                <div class="col-md-6 pl-md-5 content" data-aos="fade-left">
                     <h1><span>Sleep </span> better <span>Live </span>Better </h1>
-                    <h3>Sleep Medicine Consultants we are here for you!</h3>
+                    <h3>Sleep Medicine Consultants             
+                        <img class="logo" src="./images/PXL_20211129_184343329.jpg" alt="">
+                        we are here for you!</h3>
                     <a href="#"><button class="button">Contact Us</button></a>
                 </div>
             </div>
@@ -52,7 +56,7 @@
     <section class="about" id="about">
         <div class="container">
             <div class="row min-vh-100 align-items-center text-center">
-                <div class="col-md-6 content">
+                <div class="col-md-6 content" data-aos="fade-right">
                     <div class="box">
                         <h3><i class="fas fa-solid fa-house-chimney-medical"></i>    Clinical Services </h3>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
@@ -66,7 +70,7 @@
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
                     </div>
                 </div>
-                <div class="col-md-6 d-none d-md-block">
+                <div class="col-md-6 d-none d-md-block" data-aos="fade-left">
                     <img src="./images/1533845191.svg" alt="" width="100%">
                 </div>
             </div>
@@ -76,47 +80,47 @@
         <div class="container">
             <h1 class="heading"><span>'</span> our facility <span>'</span></h1>
             <div class="box-container">
-                <div class="box" title="Our Clinic">
+                <div class="box" title="Our Clinic" data-aos="zoom-in">
                     <a href="./images/hopital.svg">
                         <img src="./images/hopital.svg" alt="">
                     </a>
                 </div>
-                <div class="box" title="our doctors">
+                <div class="box" title="our doctors" data-aos="zoom-in">
                     <a href="./images/Doctor-Holding-Clipboard.svg">
                         <img src="./images/Doctor-Holding-Clipboard.svg" alt="">
                     </a>
                 </div>
-                <div class="box" title="In-Lab sleep test">
+                <div class="box" title="In-Lab sleep test" data-aos="zoom-in">
                     <a href="./images/1526132491.svg">
                         <img src="./images/1526132491.svg" alt="">
                     </a>
                 </div>
-                <div class="box" title="home sleep test">
+                <div class="box" title="home sleep test" data-aos="zoom-in">
                     <a href="./images/resmedHST.jpeg">
                         <img src="./images/resmedHST.jpeg" alt="">
                     </a>
                 </div>
-                <div class="box" title="RLS">
+                <div class="box" title="RLS" data-aos="zoom-in">
                     <a href="./images/Human-Legs-Sideview.svg">
                         <img src="./images/Human-Legs-Sideview.svg" alt="">
                     </a>
                 </div>
-                <div class="box" title="insomnia">
+                <div class="box" title="insomnia" data-aos="zoom-in">
                     <a href="./images/Van-Gogh-Starry-Night.svg">
                         <img src="./images/Van-Gogh-Starry-Night.svg" alt="">
                     </a>
                 </div>
-                <div class="box" title="sleep apnea">
+                <div class="box" title="sleep apnea" data-aos="zoom-in">
                     <a href="./images/OSA.png">
                         <img src="./images/OSA.png" alt="">
                     </a>
                 </div>
-                <div class="box" title="snoring">
+                <div class="box" title="snoring" data-aos="zoom-in">
                     <a href="./images/1545007931.svg">
                         <img src="./images/1545007931.svg" alt="">
                     </a>
                 </div>
-                <div class="box" title="CPAP">
+                <div class="box" title="CPAP" data-aos="zoom-in">
                     <a href="./images/osaOnCPAP.png">
                         <img src="./images/osaOnCPAP.png" alt="">
                     </a>
@@ -132,19 +136,19 @@
         <div class="container">
             <h1 class="heading"><span>'</span> Reviews <span>'</span></h1>
             <div class="box-container">
-                <div class="box">
+                <div class="box" data-aos="fade-right">
                     <div class="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus tempora sunt qui eaque aut fugit veniam vel quidem accusantium ad!</div>
                     <h3>Someone's Name</h3>
                     <span>Jan 5, 2022</span>
                     <img src="./images/zeimusu-Woman-s-face-with-long-neck.svg" alt="">
                 </div>
-                <div class="box">
+                <div class="box" data-aos="fade-up">
                     <div class="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus tempora sunt qui eaque aut fugit veniam vel quidem accusantium ad!</div>
                     <h3>Someone's Name</h3>
                     <span>Mar 2, 2022</span>
                     <img src="./images/Gurnface.svg" alt="">
                 </div>
-                <div class="box">
+                <div class="box" data-aos="fade-left">
                     <div class="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus tempora sunt qui eaque aut fugit veniam vel quidem accusantium ad!</div>
                     <h3>Someone's Name</h3>
                     <span>Jan 28, 2022</span>
@@ -156,26 +160,26 @@
     <section class="counter">
         <div class="container">
             <div class="box-container">
-                <div class="box">
+                <div class="box" data-aos="fade-up">
                     <i class="fas fa-hospital">
                         <span>120+</span>
                         <h3>Clinics</h3>
                     </i>
                 </div>
-                <div class="box">
+                <div class="box" data-aos="fade-up">
                     <i class="fas fa-users">
                         <span>10+</span>
                         <h3>staff</h3>
                     </i>
                 </div>
-                <div class="box">
+                <div class="box" data-aos="fade-up">
                     <i class="fas fa-smile">
                         <span>1000+</span>
                         <h3>Happy Patients</h3>
                     </i>
                 </div>
 
-                <div class="box">
+                <div class="box" data-aos="fade-up">
                     <i class="fas fa-procedures">
                         <span>3</span>
                         <h3>Beds</h3>
@@ -189,7 +193,7 @@
             <h1 class="heading"><span>'</span> Contact Info to schedule appointment <span>'</span></h1>
             <div class="row justify-content-center">
                 <p class="instructions">we will contact you to schedule an appointment for your preferred day of the week and time.</p>
-                <div class="col-md-10">
+                <div class="col-md-10" data-aos="flip-down">
                     <form action="">
                         <div class="inputBox">
                             <input type="text" name="firstName" id="firstName" placeholder="first name">
@@ -225,20 +229,20 @@
             </div>
         </div>
     </section>
-    <section class="post" id="post">
+    <section class="post" id="posts">
         <div class="container min-vh-100">
             <h1 class="heading"><span>'</span> out posts <span>'</span></h1>
             <div class="box-container">
                 <div class="box">
                     <img src="./images/1550313187 (1).svg" alt="">
-                    <div class="content">
+                    <div class="content" data-aos="fade-right">
                         <span>April 1, 2021</span>
                         <a href="#"><h3>Waitingroom 411</h3></a>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae eum repudiandae molestiae saepe accusamus voluptas qui veritatis nobis quia doloribus?</p>
                         <a href="#"><button class="button">learn more</button></a>
                     </div>
                 </div>
-                <div class="box">
+                <div class="box" data-aos="fade-up">
                     <img src="./images/brain-diagram.svg" alt="">
                     <div class="content">
                         <span>December 5, 2021</span>
@@ -248,7 +252,7 @@
                         <a href="#"><button class="button">learn more</button></a>
                     </div>
                 </div>
-                <div class="box">
+                <div class="box" data-aos="fade-left">
                     <img src="./images/WEIGHT.svg" alt="">
                     <div class="content">
                         <span>February 28, 2022</span>
@@ -260,6 +264,44 @@
             </div>
         </div>
     </section>
+    <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col md-4" data-aos="fade-right">
+                    <a href="#" class="logo"><span>S</span>leep<span>M</span>edicine<span>C</span>onsultants</a>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, deserunt aspernatur porro quo numquam qui asperiores vitae vel sed tenetur!</p>
+                </div>
+                <div class="col md-4 text-center" data-aos="fade-up">
+                    <h3>links</h3>
+                    <a href="#home">home</a>
+                    <a href="#about">about</a>
+                    <a href="#facility">facility</a>
+                    <a href="#location">location</a>
+                    <a href="#contacts">contacts</a>
+                    <a href="#posts">posts</a>
+                    <a href="url('https://sso.azaleahealth.com/')"></a>
+                </div>
+                <div class="col md-4 text-right">
+                    <h3>share</h3>
+                    <a href="#">facebook</a>
+                    <a href="#">twitter</a>
+                    <a href="#">instagram</a>
+                    <a href="#">tikTok</a>
+                </div>
+                <div class="col md-4 text-right" data-aos="fade-left">
+                    <h3>forms</h3>
+                    <a href="ur('https://www.sleepdoc.net/_files/   ugd/657de1_bde20a72f7ba47f3931b9f5410d8686e.pdf')">Sleep History Questionnaire</a>
+                    <a href="url('https://www.sleepdoc.net/_files/ugd/657de1_f938ac746778452eaa63c65868eb0285.pdf')">CSA Form</a>
+                    <a href="url('https://www.sleepdoc.net/_files/ugd/657de1_f612d7bb8d25422baad8a0b8761b1316.pdf')">AOB Form</a>
+                    <a href="url('https://www.sleepdoc.net/_files/ugd/657de1_66294ef1daa844719ba2bf42f979441a.pdf')">Epworth Form</a>
+                    <a href="url('https://hushforms.com/formcovid2020')">COVID Form</a>
+                    <a href="url('https://secure.hushmail.com/mail/?secureform=financial&subject=Sleep%20Medicine%20Consultants%3A%20Financial%20Form#compose')">Financial Form</a>
+                    <a href="url('')">TXU CPAP Savings Form</a>
+                </div>
+            </div>
+        </div>
+        <h1 class="credit text-center mx-auto">© 2018 <span>Sleep Medicine Consultants</span> | all rights reserved.</h1>
+    </section>
 
 
 
@@ -268,7 +310,15 @@
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./js/main.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            delay: 400
+        })
+    </script>
 </body>
 
 </html>

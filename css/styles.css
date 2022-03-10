@@ -90,7 +90,7 @@ header{
 text-align: center;
 font-size: 4rem;
 padding: 1rem;
-padding-top: 8rem;
+padding-top: 5rem;
 color: var(--black);
 }
 
@@ -106,6 +106,8 @@ header .container{
 
 header a{
     color: var(--black);
+    font-size: 2rem;
+    letter-spacing: 1px;
 }
 
 header a:hover{
@@ -114,6 +116,7 @@ header a:hover{
 
 header .container .logo{
     font-size: 3rem;
+    justify-content: center;
 }
 
 header .container .logo span{
@@ -148,8 +151,6 @@ header .fa-times{
     transform: rotate(180deg);
 }
 
-
-
 .home .content h1{
     font-size: 5rem;
     color: var(--black);
@@ -157,6 +158,14 @@ header .fa-times{
 
 .home .content h1 span{
     color: var(--blue);
+}
+
+.home h3 img{
+    width: 5rem;
+    height: 5rem;
+    opacity: 1;
+    justify-content: center;
+    padding-top: 1rem;
 }
 
 .home .content h3{
@@ -416,9 +425,63 @@ header .fa-times{
     color: var(--black);
 }
 
+.footer{
+    background: var(--black);
+}
+
+.footer p{
+    font-size: 1.5rem;
+    padding: 1rem 0;
+}
+
+.footer .col-md-4:nth-child(1) a{
+    font-size: 3rem;
+    color: #fff;
+}
+
+.footer .col-md-4:nth-child(1) a span{
+    font-size: 3rem;
+    color: var(--blue);
+}
+
+.footer a{
+    font-size: 2rem;
+    color: #ccc;
+    display: block;
+}
+
+.footer p{
+    font-size: 2rem;
+    color: #fff;
+}
+
+.footer h3{
+    color: #fff;
+    font-size: 3rem;
+}
+
+.footer a:hover{
+    color: var(--blue);
+}
 
 
+.footer .logo{
+    font-size: 3rem;
+    color: #fff;
+}
 
+.footer .credit{
+    color: #fff;
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 4rem;
+    border-top: .1rem solid #ccc !important;
+}
+
+.footer .credit span{
+    color: var(--blue);
+}
 
 
 
