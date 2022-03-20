@@ -38,7 +38,7 @@ section{
 
 .button{
     height: 3.5rem;
-    width: 15rem;
+    width: 20rem;
     background: var(--blue);
     color: #fff;
     font-size: 1.7rem;
@@ -98,6 +98,10 @@ color: var(--black);
     color: var(--blue);
 }
 
+header{
+    background-color: #fff;
+}
+
 header .container{
     display: flex;
     align-items: center;
@@ -114,12 +118,12 @@ header a:hover{
     color: var(--blue);
 }
 
-header .container .logo{
+header .logo{
     font-size: 3rem;
     justify-content: center;
 }
 
-header .container .logo span{
+header .logo span{
     color: var(--blue);
 }
 
@@ -368,12 +372,63 @@ header .fa-times{
 
 .contact form input[type="submit"]{
     width: 20rem;
+    margin-bottom: 7rem;
 }
 
 .contact form input[type="submit"]:hover{
     background-color: var(--black);
 }
 
+.location {
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+
+}
+
+.location .box-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+}
+
+.location .box-container .box{
+    margin: 2rem 5rem;
+    text-align: center;
+}
+
+.location .box-container .box i{
+    color: var(--blue);
+    font-size: 4rem;
+}    
+
+.location .box-container .box span{
+    color: var(--black);
+    font-size: 3rem;
+    display: block;
+    padding: 1rem 0;
+}
+
+.location .box-container .box h3{
+    color: #666;
+    font-size: 2.5rem;
+}
+
+.post{
+    background: var(--black);
+    color: #fff;
+    padding-bottom: 8rem;
+}
+
+.post .heading{
+    color: #fff;
+    padding-bottom: 3rem;
+
+}
 
 .post .box-container{
     display: flex;
@@ -387,6 +442,8 @@ header .fa-times{
     overflow: hidden;
     border-radius: 5rem;
     box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+    background-color: #fff;
+    color: var(--black);
 }
 
 .post .box-container .box img{
@@ -400,7 +457,7 @@ header .fa-times{
 }
 
 .post .box-container .box .content span{
-    color: #666;
+    color: var(--black);
     font-size: 1.5rem;
     display: block;
     padding: 1rem 0;
@@ -425,9 +482,9 @@ header .fa-times{
     color: var(--black);
 }
 
-.footer{
+/* .footer{
     background: var(--black);
-}
+} */
 
 .footer p{
     font-size: 1.5rem;
@@ -436,7 +493,7 @@ header .fa-times{
 
 .footer .col-md-4:nth-child(1) a{
     font-size: 3rem;
-    color: #fff;
+    color:var(--black);
 }
 
 .footer .col-md-4:nth-child(1) a span{
@@ -446,17 +503,17 @@ header .fa-times{
 
 .footer a{
     font-size: 2rem;
-    color: #ccc;
+    color: var(--black);
     display: block;
 }
 
 .footer p{
     font-size: 2rem;
-    color: #fff;
+    color: var(--black);
 }
 
 .footer h3{
-    color: #fff;
+    color: var(--black);
     font-size: 3rem;
 }
 
@@ -464,19 +521,26 @@ header .fa-times{
     color: var(--blue);
 }
 
-
 .footer .logo{
     font-size: 3rem;
-    color: #fff;
+    color: var(--black);
 }
 
+.footer .logo span{
+    font-size: 3.2rem;
+    color: var(--blue)
+}
+
+
+
 .footer .credit{
-    color: #fff;
+    color: var(--black);
     width: 80%;
     margin: 0;
     padding: 0;
     padding-bottom: 4rem;
     border-top: .1rem solid #ccc !important;
+    margin-top: 3rem;
 }
 
 .footer .credit span{
