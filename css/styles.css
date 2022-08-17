@@ -236,7 +236,7 @@ header .fa-times{
    transform: scale(1.3); 
 }
 
-.review{
+.insurance{
     background: url(../images/1541523336.svg), linear-gradient(var(--black),var(--black)) no-repeat;
     box-sizing: cover;
     background-position: center;
@@ -244,19 +244,24 @@ header .fa-times{
     background-blend-mode: multiply;
 }
 
-.review .heading{
+.insurance .heading{
     color: #fff;
 }
 
-.review .box-container{
+.insurance h2{
+    color: #fff;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.insurance .box-container{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     padding-bottom: 5rem;
-}
+} 
 
-.review .box-container .box{
-    background: #fff;
+.insurance .box-container .box{
     width: 30rem;
     margin: 5rem 1rem;
     padding: 1.5rem;
@@ -264,33 +269,33 @@ header .fa-times{
 }
 
 
-.review .box-container .box img{
+/* .insurance .box-container .box img{
     position: absolute;
     bottom: -7.5rem;left: -1rem;
     height: 5rem;
     width: 5rem;
     border-radius: 50%;
     object-fit: cover;
-}
+} */
 
-.review .box-container .box p{
+.insurance .box-container .box p{
     text-align: end;
     color: var(--black);
 }    
 
-.review .box-container .box h3{
-    font-size: 1.4rem;
+.insurance .box-container .box h3{
+    font-size: 1rem;
     color: var(--black);
 }  
 
-.review .box-container .box span{
+/* .insurance .box-container .box span{
     text-align: end;
     display: block;
     color: var(--black);
     font-size: 1.5rem;
-}  
-
-.review .box-container .box::before{
+}   */
+/* 
+.insurance .box-container .box::before{
     content: '';
     position: absolute;
     bottom: -1rem; left: .4rem;
@@ -298,7 +303,7 @@ header .fa-times{
     width: 2rem;
     background-color: #fff;
     transform: rotate(45deg)
-}
+} */
 
 .counter .box-container{
     display: flex;
