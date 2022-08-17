@@ -268,16 +268,6 @@ header .fa-times{
     position: relative;
 }
 
-
-/* .insurance .box-container .box img{
-    position: absolute;
-    bottom: -7.5rem;left: -1rem;
-    height: 5rem;
-    width: 5rem;
-    border-radius: 50%;
-    object-fit: cover;
-} */
-
 .insurance .box-container .box p{
     text-align: end;
     color: var(--black);
@@ -287,23 +277,6 @@ header .fa-times{
     font-size: 1rem;
     color: var(--black);
 }  
-
-/* .insurance .box-container .box span{
-    text-align: end;
-    display: block;
-    color: var(--black);
-    font-size: 1.5rem;
-}   */
-/* 
-.insurance .box-container .box::before{
-    content: '';
-    position: absolute;
-    bottom: -1rem; left: .4rem;
-    height: 2rem;
-    width: 2rem;
-    background-color: #fff;
-    transform: rotate(45deg)
-} */
 
 .counter .box-container{
     display: flex;
@@ -487,10 +460,6 @@ header .fa-times{
     font-size: 1.3rem;
     color: var(--black);
 }
-
-/* .footer{
-    background: var(--black);
-} */
 
 .footer p{
     font-size: 1.5rem;
