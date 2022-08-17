@@ -119,12 +119,21 @@ header a:hover{
 }
 
 header .logo{
-    font-size: 3rem;
+    font-size: 5rem;
     justify-content: center;
+    align-content: start;
 }
 
 header .logo span{
     color: var(--blue);
+}
+
+header .logo {
+    width: 11rem;
+    height: 9rem;
+    opacity: 1;
+    justify-content: center;
+    padding-top: 1rem;
 }
 
 header .nav ul{
@@ -162,14 +171,6 @@ header .fa-times{
 
 .home .content h1 span{
     color: var(--blue);
-}
-
-.home h3 img{
-    width: 5rem;
-    height: 5rem;
-    opacity: 1;
-    justify-content: center;
-    padding-top: 1rem;
 }
 
 .home .content h3{
@@ -226,8 +227,8 @@ header .fa-times{
 }
 
 .facility .box-container .box img{
-    height: 90%;
-    width: 90%;
+    height: 80%;
+    width: 80%;
     object-fit: cover;
 }
 
@@ -554,21 +555,22 @@ header .fa-times{
 
 @media (max-width:768px){
     html{
-        font-size: 55%;
+        font-size: 25%;
     }
     header .fa-bars{
-        display: block;
+        display:initial;
     }
     header .nav{
         position: fixed;
-        top:-100rem; left:50%;
+        top:-100rem; left:45%;
         transform: translate(-50%, -50%);
         box-shadow: 0 0 0 100vh rgba(0,0,0.3);
         border-radius:.5rem;
         border:.3rem solid var(--blue) !important; 
         background: #fff;
-        width: 95%;
+        width: 100%;
         opacity: 0;
+        margin-left: 3%;
     }
 
     header .nav ul{
