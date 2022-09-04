@@ -75,7 +75,7 @@ section{
 header{
     width: 100%;
     position: fixed;
-    top:0; left:0;
+    top:-2.7rem; left:0;
     padding: .1rem .3rem;
     z-index: 1000;
 }
@@ -90,7 +90,6 @@ header{
 text-align: center;
 font-size: 4rem;
 padding: 1rem;
-padding-top: 5rem;
 color: var(--black);
 }
 
@@ -104,8 +103,8 @@ header{
 
 header .container{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: space-evenly;
 }
 
 header a{
@@ -120,8 +119,9 @@ header a:hover{
 
 header .logo{
     font-size: 5rem;
-    justify-content: center;
-    align-content: start;
+    justify-content: left;
+    align-content: center;
+    margin-block-start: -3rem;
 }
 
 header .logo span{
@@ -129,11 +129,11 @@ header .logo span{
 }
 
 header .logo {
-    width: 8.7rem;
-    height: 8.4rem;
+    width: 12rem;
+    height: 12.9rem;
     opacity: 1;
     justify-content: center;
-    padding-top: 1rem;
+    padding-top: 7rem;
 }
 
 header .nav ul{
@@ -624,7 +624,15 @@ header .fa-times{
 
 .footer p{
     font-size: 1.5rem;
-    padding: 1rem 0;
+    padding: 4rem -7rem;
+}
+
+.footer .logo {
+    width: 12rem;
+    height: 9.6rem;
+    opacity: 1;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
 .footer .col-md-4:nth-child(1) a{
@@ -635,12 +643,18 @@ header .fa-times{
 .footer .col-md-4:nth-child(1) a span{
     font-size: 3rem;
     color: var(--blue);
+    margin-top: 8rem;
 }
 
 .footer a{
     font-size: 2rem;
     color: var(--black);
     display: block;
+}
+
+.footer .title {
+    margin-top: 5rem;
+    margin-bottom: -4rem;
 }
 
 .footer p{
@@ -651,6 +665,7 @@ header .fa-times{
 .footer h3{
     color: var(--black);
     font-size: 3rem;
+    margin-top: 5rem;
 }
 
 .footer a:hover{
@@ -666,6 +681,20 @@ header .fa-times{
     font-size: 3.2rem;
     color: var(--blue)
 }
+
+.footer .column {
+    float: left;
+    width: 50%;
+    padding-left: 10rem;
+  }
+
+
+  /* Clear floats after the columns */
+.footer .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 
 
 
