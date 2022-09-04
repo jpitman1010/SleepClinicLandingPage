@@ -130,10 +130,10 @@ header .logo span{
 
 header .logo {
     width: 12rem;
-    height: 12.9rem;
+    height: 13.5rem;
     opacity: 1;
     justify-content: center;
-    padding-top: 7rem;
+    padding-top: 6.5rem;
 }
 
 header .nav ul{
@@ -282,6 +282,7 @@ header .fa-times{
 .providers .box-container .box .content h3{
     font-size: 2rem;
     color: var(--black);
+    font-weight: bolder;
 }
 
 .providers .box-container .box .content h3:hover{
@@ -294,6 +295,10 @@ header .fa-times{
     color: var(--black);
 }
 
+.providers .label h4 {
+    font-size: 1.7rem;
+    font-weight: bolder;
+}
 .providers h4 {
     font-size: 1.5rem;
     font-weight: bold;
