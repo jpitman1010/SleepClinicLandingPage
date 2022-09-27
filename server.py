@@ -1,12 +1,14 @@
 """Server for Sleep Consultants Landing Page."""
 from flask import Flask, render_template, request, flash, session, redirect, url_for
-from model import connect_to_db, db, Call_Request, Referral
-import crud
+# from model import connect_to_db, db, CallRequest, Referral
+# import crud
 import os
 import sys
 from jinja2 import StrictUndefined
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import ssl
+import smtplib
 
 
 app = Flask(__name__)
@@ -36,7 +38,25 @@ def user_reg_post_intake():
 
     refer_patient = crud.refer_patient(
         referring, clinic, specialty, referring_contact, reason, fname, lname, phone, additional)
-    return render_template('/referral_success.html', referring=referring)
+
+    session['referring'] = referring
+    session['clinic'] = clinic
+    session['specialty'] = specialty
+    session['referring_contact'] = referring_contact
+    session['reason'] = reason
+    session['fname'] = fname
+    session['lname'] = lname
+    session['phone'] = phone
+    session['additional'] = additional
+
+    return redirect(url_for('/referral_successful'))
+
+
+@ app.route('/referral_success')
+def referral_successful():
+    """Show Referral Successful html page"""
+    referring = sessions['referring']
+    return render_template('referral_success.html')
 
 
 @ app.route('/call_request', methods=["POST"])
@@ -52,65 +72,60 @@ def call_requested():
     subject = request.form.get('subject')
 
     port = 465  # For SSL
-    # port = 1025
-    # for local host
-    password = input("Type your password and press enter: ")
 
     # Create a secure SSL context
     context = ssl.create_default_context()
+    password = os.environ['password']
+    my_email = os.environ['email']
 
     with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
-        server.login("my@gmail.com", password)
-    # TODO: Send email here
+        server.login(my_email, password)
 
-    sender_email = "jpitman1010@gmail.com"
+    sender_email = my_email
     receiver_email = email
-    password = input("Type your password and press enter:")
+
     try:
-        server = smtplib.SMTP(smtp_server, port)
+        server = smtplib.SMTP("smtp.gmail.com", port)
         server.ehlo()  # Can be omitted
-        server.starttls(context=context)  # Secure the connection
+        server.starttls(context=None)  # Secure the connection
         server.ehlo()  # Can be omitted
         server.login(sender_email, password)
-        # TODO: Send email here
+
     except Exception as e:
         # Print any error messages to stdout
         print(e)
-    finally:
-        server.quit()
 
     message = MIMEMultipart("alternative")
-    message["Subject"] = "SECURE: Phone Call Request: {{session['time_selection']}} "
+    message["Subject"] = f"SECURE: Phone Call Request: {day_of_week} at {time_selection} "
     message["From"] = sender_email
     message["To"] = receiver_email
     message["Cc"] = sender_email
 
     # Create the plain-text and HTML version of your message
-    text = f"""\
-    A request for a phone call has been placed:  
-    
-    First Name: {{session['fname']}} 
-    Last Name: {{session['lname']}} 
-    Phone Number: {{session['phone']}} 
-    Email: {{session['email']}} 
-    Time Patient is Available to take Call: {{session['time_selection']}} - Day: {{session['day_of_week']}} 
-    Subject: {{session['subject']}} 
+    text = f"""
+    A request for a phone call has been placed:
 
-    
+    First Name: {fname}
+    Last Name: {lname}
+    Phone Number: {phone}
+    Email: {email}
+    Time Patient is Available to take Call: {time_selection} - Day: {day_of_week}
+    Subject: {subject}
+
     """
-    html = """\
+    html = f"""
     <html>
     <body>
         <p>
-    A request for a phone call has been placed:  
-    
-    <b>First Name:</b> {{session['fname']}} <br>
-    <b>Last Name:</b> {{session['lname']}} <br>
-    <b>Phone Number:</b> {{session['phone']}} <br>
-    <b>Email:</b> {{session['email']}} <br>
-    <b>Time Patient is Available to take Call:</b> {{session['time_selection']}} <br>
-    <b>Day of Week to Call Patient:</b> {{session['day_of_week]}}<br>
-    <b>Subject:</b> {{session['subject']}} <br>
+    A request for a phone call has been placed:
+
+    <b>First Name:</b> {fname}<br>
+    <b>Last Name:</b> {lname} <br>
+    <b>Phone Number:</b> {phone} <br>
+    <b>Email:</b> {email} <br>
+    <b>Time Patient is Available to take Call:</b> {time_selection}<br>
+    <b>Day of Week to Call Patient:</b> {day_of_week}<br>
+    <b>Subject:</b> {subject}<br>
         </p>
     </body>
     </html>
@@ -134,13 +149,17 @@ def call_requested():
             sender_email, receiver_email, message.as_string()
         )
 
-    request_call = crud.request_call(
-        fname, lname, phone, email, time_selection, day_of_week, subject)
-    return render_template('/call_request_success.html', request_call=request_call, fname=fname)
+    return redirect(url_for('successful_call_request'))
+
+
+@ app.route('/successful_call')
+def successful_call_request():
+    """render template for successful call request"""
+    return render_template('call_request_success.html')
 
 
 if __name__ == '__main__':
 
-    connect_to_db(app)
+    # connect_to_db(app)
 
     app.run(host='0.0.0.0', debug=True, use_reloader=True)
