@@ -40,7 +40,7 @@
                     <li><a href="#contact">Schedule</a></li>
                     <li><a href="#location">Location</a></li>
                     <li><a href="#posts">learn more</a></li>
-                    <li><a href="referrals">referrals</a></li>
+                    <li><a href="#referrals">referrals</a></li>
                     <li><a href="https://sso.azaleahealth.com/" rel="noopener noreferrer" target="_blank">patient
                             portal</a></li>
                 </ul>
@@ -56,10 +56,12 @@
                 </div>
                 <div class="col-md-6 pl-md-5 content" data-aos="fade-left">
                     <h1><span>Sleep </span> better <span>Live </span>Better </h1>
-                    <h3>we are here for you!</h3>
-                    <a href="#contact"><button class="button">Request a Call</button></a>
+                    <h3>we are here for you!<br>
+                        The referral has successfully been sent to our team.</h3>
+                    <a href="#referrals"><button class="button">Send another referral?</button></a>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <section class="about" id="about">
@@ -351,7 +353,8 @@
                         </div>
                         <div class="error success">
                             <label for="referring_contact">Referring Provider's Contact Information</label>
-                            <input type="text" id="referring_contact" name="referring_contact" value="{{session['referring_contact']}}">
+                            <input type="text" id="referring_contact" name="referring_contact"
+                                value="{{session['referring_contact']}}">
                         </div>
                         <div class="error success">
                             <label for="reason">Reason for referral</label>
