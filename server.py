@@ -1,31 +1,45 @@
 """Server for Sleep Consultants Landing Page."""
-# import os
+import os
+from os.path import basename
+from pdf_mail import sendpdf
 # import sys
+import json
+from pathlib import Path
+import ssl
+import email
+import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-import ssl
-import smtplib
+from email.mime.application import MIMEApplication
+from email.mime.base import MIMEBase
+from email.utils import COMMASPACE, formatdate
+from email import encoders
+import imghdr
+from email.message import EmailMessage
 from jinja2 import StrictUndefined
 from flask import Flask, render_template, request, flash, session, redirect, url_for
+from werkzeug.utils import secure_filename
+import static.upload
 
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
+upload = './static/upload'
+app.config['uploadFolder'] = upload
 
 
-def send_fax(message):
+def send_email(message):
     """sending email"""
 
     port = 465  # For SSL
 
     # Create a secure SSL context
     context = ssl.create_default_context()
-    # password = os.environ['password']
-    # my_email = os.environ['email']
-    my_email = 'jpitman1010@gmail.com'
-    password = 'jidnywydmewkxzuj'
+
+    my_email = 'an_email_address'
+    password = 'a password'
 
     with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
         server.login(my_email, password)
@@ -49,7 +63,7 @@ def send_fax(message):
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
         server.login(sender_email, password)
         server.sendmail(
-            sender_email, sender_email, message.as_string()
+            sender_email, sender_email, message
         )
 
     return
@@ -61,7 +75,7 @@ def show_homepage():
     return render_template('index.html')
 
 
-@app.route('/refer_patient', methods=['POST'])
+@app.route('/refer_patient', methods=['GET', 'POST'])
 def user_reg_post_intake():
     """take user registration info and make cookies"""
     referring = request.form.get('referring')
@@ -73,25 +87,24 @@ def user_reg_post_intake():
     lname = request.form.get('lname')
     phone = request.form.get('phone')
     additional = request.form.get('additional')
+    files = request.files.getlist('files')
+    print('files = ', files)
+    print('type(files)', type(files))
 
     session['referring'] = referring
     session['clinic'] = clinic
     session['specialty'] = specialty
     session['referring_contact'] = referring_contact
-    session['reason'] = reason
-    session['fname'] = fname
-    session['lname'] = lname
-    session['phone'] = phone
-    session['additional'] = additional
 
     sender_email = 'jpitman1010@gmail.com'
+    password = 'jidnywydmewkxzuj'
 
-    message = MIMEMultipart("alternative")
-    message["Subject"] = f"SECURE: Referral: From {referring} at {clinic}"
+    message = MIMEMultipart()
     message["From"] = sender_email
     message["To"] = sender_email
-
-    # Create the plain-text and HTML version of your message
+    subject = f"SECURE: Referral: From {referring} at {clinic}"
+    message["Subject"] = f"SECURE: Referral: From {referring} at {clinic}"
+    Create the plain-text and HTML version of your message
     text = f"""
     A referral has been placed:
 
@@ -143,7 +156,20 @@ def user_reg_post_intake():
     message.attach(part1)
     message.attach(part2)
 
-    send_fax(message)
+    to_send.email_send()
+    for file in files:
+        # file.save(os.path.join(app.config['uploadFolder'], file.filename))
+        print('this is the file in the for loop =', file.filename)
+
+        with open(upload + "/" + file.filename, 'rb') as f:
+            attachment = MIMEApplication(
+                f.read(), Name=basename(file.filename))
+            attachment['Content-Disposition'] = 'attachment; file="{}"'.format(
+                basename(file.filename))
+            encoders.encode_base64(attachment)
+            message.attach(attachment)
+            f.close()
+    send_email(message)
 
     return redirect(url_for('referral_successful'))
 
@@ -166,7 +192,7 @@ def call_requested():
     day_of_week = request.form.get('dayOfWeek')
     subject = request.form.get('subject')
 
-    sender_email = 'jpitman1010@gmail.com'
+    sender_email = 'sender_email@gmail.com'
 
     message = MIMEMultipart("alternative")
     message["Subject"] = f"SECURE: Phone Call Request: {day_of_week} at {time_selection}"
@@ -213,7 +239,7 @@ def call_requested():
     message.attach(part1)
     message.attach(part2)
 
-    send_fax(message)
+    send_email(message)
 
     return redirect(url_for('successful_call_request'))
 
