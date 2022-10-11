@@ -27,6 +27,21 @@
 
 // });
 
+let targetDiv = document.getElementById("loading");
+let submit_referral = document.getElementById("submit_referral");
+submit_referral.onclick = function () {
+  console.log('submit button was pressed')
+  // if (targetDiv.style.display !== "none") {
+  //   targetDiv.style.display = "none";
+  // } else {
+  //   targetDiv.style.display = "block";
+  // }
+  targetDiv.style.display = "block";
+};
+
+// $('#submit_referral').on('click', function () {
+//   document.getElementById("#loading").display='block';
+// };
 
 $(':file').on('change', function () {
     var file = this.files[0];
@@ -38,7 +53,7 @@ $(':file').on('change', function () {
     // Also see .name, .type
   });
 
-  $(':button').on('click', function () {
+  $(':button').click(function () {
     $.ajax({
       // Your server script to process the upload
       url: 'upload.php',

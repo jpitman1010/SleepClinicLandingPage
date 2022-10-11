@@ -19,6 +19,7 @@
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../static/css/styles.css" />
+    <link rel="stylesheet" href="../static/css/loading.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
         integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -325,7 +326,7 @@
     <section class="contact" id="contact">
         <div class="container max-vh-100">
             <h1 class="heading"> Request a Call for an Appointment </h1>
-            <div class="row justify-content-left" style="color:white;font-size: large;">
+            <div class="box justify-content-left" style="color:white;font-size: large;">
                 <div class="form-field">
                     <form name="form" action="/call_request" method="POST">
                         <div class="error success">
@@ -387,7 +388,7 @@
                     <form name="form" action="/refer_patient" method="POST" enctype="multipart/form-data">
                         <div class="error success">
                             <label for="referring">Referring Provider Name</label>
-                            <input type="text" id="referring" name="referring">
+                            <input type="text" id="referring" name="referring" required>
                         </div>
                         <div class="error success">
                             <label for="clinic">Referring Clinic Name</label>
@@ -395,39 +396,48 @@
                         </div>
                         <div class="error success">
                             <label for="specialty">Referring Provider's Specialty</label>
-                            <input type="text" id="specialty" name="specialty">
+                            <input type="text" id="specialty" name="specialty" required>
                         </div>
                         <div class="error success">
                             <label for="referral_contact">Referring Provider's Contact Information</label>
-                            <input type="text" id="referral_contact" name="referral_contact">
+                            <input type="text" id="referral_contact" name="referral_contact" required>
                         </div>
                         <div class="error success">
                             <label for="reason">Reason for referral</label>
-                            <input type="text" id="reason" name="reason">
+                            <input type="text" id="reason" name="reason" required>
                         </div>
                         <div class="error success">
                             <label for="fname">Patient First Name</label>
-                            <input type="text" name="fname">
+                            <input type="text" name="fname" required>
                         </div>
                         <div class="error success">
                             <label for="lname">Patient Last Name</label>
-                            <input type="text" name="lname">
+                            <input type="text" name="lname" required>
                         </div>
                         <div class="error success">
-                            <label for="phone">Patient Phone Number</label>
-                            <input type="text" name="phone" minlength="10" maxlength="12">
+                            <label for="phone">Patient Phone Number (ex. 222-22-2222 or 222222222)</label>
+                            <input type="text" name="phone" minlength="10" maxlength="12" required>
                         </div>
                         <label for="additional">Additional Information</label>
                         <textarea id="subject" name="additional" placeholder="Optional..."></textarea><br>
                         <br>
-                        <input type="file" id="file" name="file" multiple > <br>
+                        <input type="file" id="file" name="file" multiple> <br>
                         <div class="form-field">
-                            <input class="submit" type="submit" name="submit" value="Submit" />
+                            <input class="submit" type="submit" name="submit" value="Submit"  id="submit_referral"/>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+        <fieldset class="wrapper" id="loading" style="display: none"  >
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="shadow"></div>
+            <div class="shadow"></div>
+            <div class="shadow"></div>
+            <span>Submitting Request</span>
+        </fieldset>
     </section>
 
 
@@ -594,9 +604,6 @@
         </h1>
         </div>
     </section>
-
-
-
 
     <script src="../static/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"

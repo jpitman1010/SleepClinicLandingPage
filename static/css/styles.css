@@ -440,12 +440,12 @@ textarea:focus {
     background-color: lightgray;
 }
 
-.contact .submit {
-    height: 6rem;
+.contact .form-field .submit {
+    height: 8rem;
     width: 100%;
     background: var(--blue);
     color: #fff;
-    font-size: 3rem;
+    font-size: large;
     border-radius: .5rem;
     text-transform: capitalize;
     cursor: pointer;
@@ -455,7 +455,7 @@ textarea:focus {
     margin: 1rem 0;
 }
 
-.contact .submit::before {
+.contact .form-field .submit::before {
     content: "";
     position: absolute;
     top: -100%;
@@ -467,7 +467,7 @@ textarea:focus {
     transition: .2s linear;
 }
 
-.contact .submit:hover::before {
+.contact .form-field .submit:hover::before {
     top: 0%;
 }
 
@@ -602,13 +602,12 @@ textarea:focus {
     margin-bottom: 5px;
 }
 
-.referrals .form-field .submit {
-    font-size: x-large;
-    height: 6rem;
+.referrals .form-field  .submit {
+    height: 8rem;
     width: 100%;
     background: var(--blue);
     color: #fff;
-    font-size: 1.7rem;
+    font-size: large;
     border-radius: .5rem;
     text-transform: capitalize;
     cursor: pointer;

@@ -369,7 +369,7 @@
                             <input type="text" id="lname" name="lname" required>
                         </div>
                         <div class="error success">
-                            <label for="phone">Patient Phone Number</label>
+                            <label for="phone">Patient Phone Number (ex. 222-22-2222 or 2222222222)</label>
                             <input type="text" id="phone" name="phone" minlength="10" maxlength="12" required>
                         </div>
                         <label for="additional">Additional Information</label>
@@ -378,10 +378,18 @@
                         <br>
                         <input type="file" id="file" name="file" > <br>
                         <div class="form-field">
-                            <input class="submit" type="submit" name="submit" value="Submit" id="submit_referral" />
+                            <input class="submit" type="submit" name="submit" value="Submit" id="submit_referral"/>
                         </div>
                     </form>
-                    <progress></progress>
+                    <fieldset class="wrapper" id="loading" style="display: none"  >
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="shadow"></div>
+                        <div class="shadow"></div>
+                        <div class="shadow"></div>
+                        <span>Submitting Request</span>
+                    </fieldset>
                 </div>
             </div>
         </div>
