@@ -338,47 +338,50 @@
         <div class="container max-vh-100">
             <div class="box" data-aos="fade-left">
                 <div class="form-field" style="color:black;font-size: large;">
-                    <form name="form" action="/refer_patient" method="POST">
+                    <form name="form" action="/refer_patient" method="POST"  enctype="multipart/form-data">
                         <div class="error success">
                             <label for="referring">Referring Provider Name</label>
-                            <input type="text" id="referring" name="referring" value="{{session['referring']}} ">
+                            <input type="text" id="referring" name="referring" value="{{session['referring']}}" required>
                         </div>
                         <div class="error success">
                             <label for="clinic">Referring Clinic Name</label>
-                            <input type="text" id="clinic" name="clinic" value="{{session['clinic']}} ">
+                            <input type="text" id="clinic" name="clinic" value="{{session['clinic']}}" required>
                         </div>
                         <div class="error success">
                             <label for="specialty">Referring Provider's Specialty</label>
-                            <input type="text" id="specialty" name="specialty" value="{{session['specialty']}}">
+                            <input type="text" id="specialty" name="specialty" value="{{session['specialty']}}" required>
                         </div>
                         <div class="error success">
                             <label for="referring_contact">Referring Provider's Contact Information</label>
                             <input type="text" id="referring_contact" name="referring_contact"
-                                value="{{session['referring_contact']}}">
+                                value="{{session['referring_contact']}}" required>
                         </div>
                         <div class="error success">
                             <label for="reason">Reason for referral</label>
-                            <input type="text" id="reason" name="reason">
+                            <input type="text" id="reason" name="reason" required>
                         </div>
                         <div class="error success">
                             <label for="fname">Patient First Name</label>
-                            <input type="text" id="fname" name="fname">
+                            <input type="text" id="fname" name="fname" required>
                         </div>
                         <div class="error success">
                             <label for="lname">Patient Last Name</label>
-                            <input type="text" id="lname" name="lname">
+                            <input type="text" id="lname" name="lname" required>
                         </div>
                         <div class="error success">
                             <label for="phone">Patient Phone Number</label>
-                            <input type="text" id="phone" name="phone" minlength="10" maxlength="12">
+                            <input type="text" id="phone" name="phone" minlength="10" maxlength="12" required>
                         </div>
                         <label for="additional">Additional Information</label>
                         <textarea id="subject" name="additional" placeholder="Optional..."></textarea><br>
                         <br>
+                        <br>
+                        <input type="file" id="file" name="file" > <br>
                         <div class="form-field">
-                            <input class="submit" type="submit" name="submit" value="Submit" />
+                            <input class="submit" type="submit" name="submit" value="Submit" id="submit_referral" />
                         </div>
                     </form>
+                    <progress></progress>
                 </div>
             </div>
         </div>
@@ -552,17 +555,17 @@
 
 
 
-    <!-- <script src="./js/main.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"
-        integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
-        integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="./static/js/main.js"></script>
     <script>
         AOS.init({
             duration: 1000,
