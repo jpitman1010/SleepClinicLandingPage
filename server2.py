@@ -17,7 +17,7 @@ app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
 UPLOAD_FOLDER = "./static/upload"
 app.config[UPLOAD_FOLDER] = UPLOAD_FOLDER
-ALLOWED_EXTENSIONS = {'pdf'}
+ALLOWED_EXTENSIONS = {'pdf', 'jpg', 'png', 'jpeg', 'png'}
 
 
 
@@ -26,36 +26,162 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@app.route('/')
-def show_homepage():
-    """View Homepage"""
-    return render_template('index.html')
+def email(subject, to_email, message, file=None):
+    """sending email"""
+
+    # constructing Outlook application instance
+    outlook_app = win32.Dispatch('Outlook.Application')
+    outlook_object = outlook_app.GetNameSpace('MAPI')
+
+    print(message)
+    # constructing the email item object
+    mail_item = outlook_app.CreateItem(0)
+
+    mail_item.Subject = subject
+    mail_item.BodyFormat = 1
+    mail_item.Body = message
+    mail_item.To = to_email
+    mail_item.From = 'do-not-reply@some_outlook_email.com'
+
+    if file != None:
+        if allowed_file(file.filename):
+            file.save(os.path.join(UPLOAD_FOLDER, file.filename))
+
+            #replace with destination location on hosting site
+            mail_item.Attachments.Add(r'C:\Users\jpitman\Desktop\SleepClinicLandingPage\static\upload' + '/' + file.filename)
+            print('app.request_class type ==',type(app.request_class))
+            inputStream = open(r'C:\Users\jpitman\Desktop\SleepClinicLandingPage\static\upload' + '/' + file.filename, 'rb')
+            blankStream = open(r'C:\Users\jpitman\Desktop\SleepClinicLandingPage\static\upload\blank.pdf', 'rb')
+            output = PdfWriter()
+            input = PdfReader(inputStream)
+            blank = PdfReader(blankStream)
+            del input
+            inputStream.close()
+            del blank
+            blankStream.close()
+            outputStream = open(r'C:\Users\jpitman\Desktop\SleepClinicLandingPage\static\upload' + '/' + file.filename, 'wb')
+            output.write(outputStream)
+            outputStream.close()
+            os.remove(r'C:\Users\jpitman\Desktop\SleepClinicLandingPage\static\upload' + '/' + file.filename)
+        else:
+            flash("Sorry this file-type is not allowed. Please upload only PDF, jpg, jpeg, tiff or png file types.")        
 
 
-@app.route('/refer_patient', methods=['GET', 'POST'])
-def user_reg_post_intake():
-    """take user registration info and make cookies"""
-    referring = request.form.get('referring')
-    clinic = request.form.get('clinic')
-    specialty = request.form.get('specialty')
-    referring_contact = request.form.get('referring_contact')
-    reason = request.form.get('reason')
-    fname = request.form.get('fname')
-    lname = request.form.get('lname')
-    phone = request.form.get('phone')
-    additional = request.form.get('additional')
-    file = request.files.get('file')
+    #for deployment comment out Display() and uncomment Send()
+    mail_item.Display()
+    # mail_item.Send()
+    return
 
 
-    print('files = ', file)
-    print('type(attachment)', type(file))
+def call_request_message_to_schedulers(fname, lname, phone, email, time_selection, day_of_week,additional_info):
+    """creating the call request email to send to the schedulers"""
 
-    session['referring'] = referring
-    session['clinic'] = clinic
-    session['specialty'] = specialty
-    session['referring_contact'] = referring_contact
+    subject = f"SECURE: Phone Call Request: {day_of_week} at {time_selection}"
+    to_email = "email_to_schedulers@outlook.com"
 
+
+     # Create the plain-text and HTML version of  message
     message = f"""
+    A request for a phone call has been placed:<br>
+
+    First Name: {fname}
+    Last Name: {lname}
+    Phone Number: {phone}
+    Email: {email}
+    Time Patient is Available to take Call: {time_selection} - Day: {day_of_week}
+    Subject: {additional_info}
+
+    """
+    #if html format for email is wanted: 
+    # message = f"""
+    # <html>
+    # <body>
+    #     <p>
+    # A request for a phone call has been placed:<br>
+
+    # <b>First Name:</b> {fname}<br>
+    # <b>Last Name:</b> {lname} <br>
+    # <b>Phone Number:</b> {phone} <br>
+    # <b>Email:</b> {email} <br>
+    # <b>Time Patient is Available to take Call:</b> {time_selection}<br>
+    # <b>Day of Week to Call Patient:</b> {day_of_week}<br>
+    # <b>Subject:</b> {additional_info}<br>
+    #     </p>
+    # </body>
+    # </html>
+    # """
+
+    email(subject, to_email, message)
+    return 
+
+
+def call_request_message_to_patient(fname, lname, phone, email, time_selection, day_of_week,additional_info):
+    """creating the call request email to send paperwork links to patient to fill out and confirmation of request"""
+
+    subject = f"Sleep Medicine Consultants Phone Call Request Confirmation"
+    to_email = email
+
+
+     # if the plain-text version of message is wanted
+    # message = f"""
+    # Your request for a phone call to schedule an appointment has been successfully placed.
+
+    # {fname}, 
+    
+    # Please fill out the following forms to expedite the process for intake: 
+
+    # https://hushforms.com/sleepdoc-9962
+    # https://hushforms.com/sleepdoc-3403
+    # https://hushforms.com/sleepdoc-9292
+    # https://www.sleepdoc.net/_files/ugd/657de1_66294ef1daa844719ba2bf42f979441a.pdf
+    # https://hushforms.com/formcovid2020
+    # https://secure.hushmail.com/mail/?secureform=financial&subject=Sleep%20Medicine%20Consultants%3A%20Financial%20Form#compose
+    
+    # We look forward to helping improve your sleep!  
+    
+    
+    # Sincerely,
+    
+    
+    # Sleep Medicine Consultants
+
+    # """
+    message = f"""
+    <html>
+    <body>
+        <p>
+    Your request for a phone call has been placed:<br>
+
+    {fname},<br>
+    Please fill out the following forms to expedite the process for intake: <br><br> 
+
+    <a href="https://hushforms.com/sleepdoc-9962" rel="noopener noreferrer" target="_blank">Sleep
+                    History Questionnaire</a>
+                <a href="https://hushforms.com/sleepdoc-3403" rel="noopener noreferrer" target="_blank">CSA Form</a>
+                <a href="https://hushforms.com/sleepdoc-9292" rel="noopener noreferrer" target="_blank">AOB Form</a>
+                <a href="https://www.sleepdoc.net/_files/ugd/657de1_66294ef1daa844719ba2bf42f979441a.pdf"
+                    rel="noopener noreferrer" target="_blank">Epworth Form</a>
+                <a href="https://hushforms.com/formcovid2020" rel="noopener noreferrer" target="_blank">COVID
+                    Form</a>
+                <a href="https://secure.hushmail.com/mail/?secureform=financial&subject=Sleep%20Medicine%20Consultants%3A%20Financial%20Form#compose"
+                    rel="noopener noreferrer" target="_blank">Financial Form</a>
+    <br><br>
+    We look forward to helping improve your sleep!  
+    <br><br>Sincerely,<br><br> Sleep Medicine Consultants
+        </p>
+    </body>
+    </html>
+    """
+    email(subject, to_email, message)
+    return 
+
+
+def referral_message_to_schedulers(fname, lname, phone, reason, referring, clinic, specialty, referring_contact, file, additional=None):
+    """creating the referral email to send to the schedulers"""
+
+    subject = f"SECURE: Referral: From {referring} at {clinic}"
+    to_email = "email_to_schedulers@outlook.com"
+    message = message = f"""
     A referral has been placed:
 
     Patient Information:
@@ -98,62 +224,67 @@ def user_reg_post_intake():
     # </body>
     # </html>
     # """
+     
+    email(subject, to_email, message, file)
+    return 
 
-    # Turn these into plain/html MIMEText objects
-    # part1 = MIMEText(text, "plain")
-    # part2 = MIMEText(html, "html")
 
-    # Add HTML/plain-text parts to MIMEMultipart message
-    # The email client will try to render the last part first
-    # message.attach(part1)
-    # message.attach(part2)
 
-    to_email = 'j.pitman@anEmailAddress.com'
-    send_email = 'j.pitman@anEmailAddress.com'
 
-    # constructing Outlook application instance
-    outlook_app = win32.Dispatch('Outlook.Application')
-    outlook_object = outlook_app.GetNameSpace('MAPI')
+@app.route('/')
+def show_homepage():
+    """View Homepage"""
+    return render_template('index.html')
 
-    # constructing the email item object
-    mail_item = outlook_app.CreateItem(0)
 
-    mail_item.Subject = f"SECURE: Referral: {referring} at {clinic}"
-    mail_item.BodyFormat = 1
-    print(message)
-    mail_item.Body = message
-    mail_item.To = to_email
 
-    if file != None:
-        if allowed_file(file.filename):
-            file.save(os.path.join(UPLOAD_FOLDER, file.filename))
+@ app.route('/call_request', methods=["POST"])
+def call_requested():
+    """Handling the  request for a call."""
 
-            mail_item.Attachments.Add(r'C:\Users\jpitman\Desktop\SleepClinicLandingPage\static\upload' + '/' + file.filename)
-            print('app.request_class type ==',type(app.request_class))
-                    
-            inputStream = open(r'C:\Users\jpitman\Desktop\SleepClinicLandingPage\static\upload' + '/' + file.filename, 'rb')
-            blankStream = open(r'C:\Users\jpitman\Desktop\SleepClinicLandingPage\static\upload\blank.pdf', 'rb')
-            output = PdfWriter()
-            input = PdfReader(inputStream)
-            blank = PdfReader(blankStream)
+    fname = request.form.get('fname')
+    lname = request.form.get('lname')
+    email = request.form.get('email')
+    phone = request.form.get('phone')
+    time_selection = request.form.get('timeSelection')
+    day_of_week = request.form.get('dayOfWeek')
+    additional_info = request.form.get('subject')
 
-            del input
-            inputStream.close()
-            del blank
-            blankStream.close()
-            outputStream = open(r'C:\Users\jpitman\Desktop\SleepClinicLandingPage\static\upload' + '/' + file.filename, 'wb')
-            output.write(outputStream)
-            outputStream.close()
-            os.remove(r'C:\Users\jpitman\Desktop\SleepClinicLandingPage\static\upload' + '/' + file.filename)
-        else:
-            flash("Sorry this file-type is not allowed.")
+    call_request_message_to_schedulers(fname, lname, email, phone, time_selection, day_of_week, additional_info)
+    call_request_message_to_patient(fname,lname,phone,email,time_selection,day_of_week,additional_info)
+
+    return redirect(url_for('successful_call_request'))
+
+
+@ app.route('/successful_call')
+def successful_call_request():
+    """render template for successful call request"""
+    return render_template('call_request_success.html')
+
+
+
+@app.route('/refer_patient', methods=['GET', 'POST'])
+def referral():
+    """take user registration info and make cookies"""
+    referring = request.form.get('referring')
+    clinic = request.form.get('clinic')
+    specialty = request.form.get('specialty')
+    referring_contact = request.form.get('referring_contact')
+    reason = request.form.get('reason')
+    fname = request.form.get('fname')
+    lname = request.form.get('lname')
+    phone = request.form.get('phone')
+    additional = request.form.get('additional')
+    file = request.files.get('file')
+
+    session['referring'] = referring
+    session['clinic'] = clinic
+    session['specialty'] = specialty
+    session['referring_contact'] = referring_contact
+
     
-
-
-    #for deployment comment out Display() and uncomment Send()
-    mail_item.Display()
-    # mail_item.Send()
-
+    referral_message_to_schedulers(fname, lname, phone, reason, referring, clinic, specialty, referring_contact, file, additional)
+   
     return redirect(url_for('referral_successful'))
 
 @ app.route('/referral_success')
