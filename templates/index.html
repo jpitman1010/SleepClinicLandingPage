@@ -8,29 +8,30 @@
 
     <title>SleepDoc.net</title>
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap-grid.min.css"
-        integrity="sha512-Xj2sd25G+JgJYwo0cvlGWXoUekbLg5WvW+VbItCMdXrDoZRWcS/d40ieFHu77vP0dF5PK+cX6TIp+DsPfZomhw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-        integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
     <link rel="stylesheet" href="../static/css/styles.css" />
     <link rel="stylesheet" href="../static/css/loading.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
-        integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 </head>
 
 <body>
     <header>
         <div clsas="container">
-            <!-- <a href="#" class="logo"><img class="logo" src="../static/images/LogoFinal.png"
-                    alt=""><span>S</span>leep <span>M</span>edicine <span>C</span>onsultants</a> -->
-
             <img src="../static/images/LogoFinal.png" alt="" class="logo" />
             <a href="#" class="logo"><span>S</span>leep<span>M</span>edicine<span>C</span>onsultants</a>
             <nav class="nav">
@@ -38,10 +39,10 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#facility">Facility</a></li>
-                    <li><a href="#contact">Schedule</a></li>
+                    <li><a href="#form_section">Schedule</a></li>
                     <li><a href="#location">Location</a></li>
                     <li><a href="#posts">learn more</a></li>
-                    <li><a href="#referrals">referrals</a></li>
+                    <li><a href="#form_section">referrals</a></li>
                     <li><a href="https://sso.azaleahealth.com/" rel="noopener noreferrer" target="_blank">patient
                             portal</a></li>
                 </ul>
@@ -51,7 +52,7 @@
     </header>
     <section class="home" id="home" style="margin-top: 6rem;">
         <div class="container">
-            <div class="row min-vh-100 align-items-center text-center text-md-left">
+            <div class="row min-vh-85 align-items-center text-center text-md-left">
                 <div class="col-md-6 pr-md-5 content" data-aos="zoom-in">
                     <img src="../static/images/publicdomainq-doc2.svg" width="100%" alt="Panoramic Austin View">
                 </div>
@@ -59,13 +60,12 @@
                 <div class="col-md-6 pl-md-5 content" data-aos="fade-left">
                     <h1><span>Sleep </span> better <span>Live </span>Better </h1>
                     <h3>we are here for you!</h3>
-                    <a href="#contact"><button class="button">Request a Call</button></a>
                 </div>
             </div>
     </section>
     <section class="about" id="about">
         <div class="container">
-            <div class="row min-vh-100 align-items-center text-center">
+            <div class="row min-vh-85 align-items-center text-center">
                 <div class="col-md-6 content" data-aos="fade-right">
                     <div class="box">
                         <h3><i class="fas fa-solid fa-house-chimney-medical"></i> Clinical Services </h3>
@@ -289,6 +289,8 @@
         </div>
     </section>
     <section class="providers" id="providers">
+
+
         <div class="container">
             <h1 class="heading"> our providers </h1>
             <div class="container min-vh-100">
@@ -305,143 +307,272 @@
                             <h4>Training:</h4>
                             <h5>sleep medicine fellowship with the
                                 University of Arizona in Tucson</h5>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#desaiPopup">
+                                Learn More
+                            </button>
                         </div>
                     </div>
-                    <div class="box-container">
-                        <div class="box" data-aos="fade-left" title="Monique Mulvany, N.P.">
-                            <img src="../static/images/monique.jpg" alt="">
-                            <div class="content">
-                                <h3>Monique Mulvany, N.P.</h3><br><br><br>
-                                <h4>Specialty:</h4>
-                                <h5>family nurse practioner, sleep specialty- 2006</h5>
-                                <h4>Training:</h4>
-                                <h5> Spring Hill College in Mobile, Alabama</h5>
+
+                </div>
+                <div class="modal fade" id="desaiPopup" tabindex="-1" role="dialog"
+                    aria-labelledby="Learn More About Dr. Desai" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="desai-title">Bhavim Desai, M.D.</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Dr. Desai is a Sleep Medicine Specialist with an extensive background in family
+                                medicine, urgent care and hospitalist work. His dynamic background, as well as his
+                                training in Sleep
+                                Medicine, makes him a... <br><br>
+                                Dr. Desai completed his sleep medicine fellowship at Banner Medical Center with the
+                                University of Arizona in Tucson. He is board-certified in Family Medicine and uses this
+                                whole body
+                                primary care focus in approaching patients with sleep disorders. He trained at St. Mary
+                                Mercy Hospital
+                                near Detroit. <br><br>
+                                Prior to that he attended The School of Medicine at the University of South Carolina.
+                                He has vast knowledge on all areas of sleep disorders including hypersomnia,
+                                insomnia, parasomnia, sleep apnea and movement disorders.
+                                <br><br> In his free time he enjoys exploring all that Austin has to offer as well as
+                                outdoor
+                                activities, kitesurfing and
+                                hiking.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="box-container">
+                    <div class="box" data-aos="fade-left" title="Monique Mulvany, N.P.">
+                        <img src="../static/images/monique.jpg" alt="">
+                        <div class="content">
+                            <h3>Monique Mulvany, N.P.</h3><br><br><br>
+                            <h4>Specialty:</h4>
+                            <h5>family nurse practioner, sleep specialty- 2006</h5>
+                            <h4>Training:</h4>
+                            <h5> Spring Hill College in Mobile, Alabama</h5>
+                        </div>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mulvanyPopup">
+                            Learn More
+                        </button>                    </div>
+                </div>
+                <div class="modal fade" id="mulvanyPopup" tabindex="-1" role="dialog"
+                    aria-labelledby="Learn More About Dr. Desai" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="mulvany-title">Monique Mulvany, N.P.</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Monique Sommer Mulvany is a Family Nurse Practitioner
+                        specializing in sleep disorders since 2006. Monique is an established and knowledgeable
+                        Advanced Practice Nurse who is active in current sleep-related research and patient care.
+                        <br><br>She has established and maintains relationships with a national network of sleep
+                        medicine experts to advance her expertise in treating a wide range of sleep
+                        disorders. 
+                        <br><br>Monique is originally from Brownwood, Texas <b>(go Lions!)</b> and in 2000
+                        graduated with honors from Spring Hill College in Mobile, Alabama where she
+                        received her Bachelor of Science in Nursing. Working in Orthopedic, Neuro, Spinal Trauma
+                        at Brackenridge Hospital is where she met friends and colleagues with whom she
+                        still collaborates to this day. Attending the University of Texas at Austin, she
+                        graduated with honors in 2006 with her Master's Degree in Nursing - Family Nurse
+                        Practitioner.
+                        <br><br>Monique is married to local Irish-Texan artist and art educator, John Mulvany,
+                        and has two sons - Henry and Cormac. Monique is a passionate patient advocate and is
+                        driven to help her patients achieve a more meaningful life through better sleep.
+                        When Monique is not helping patients she is often tending to her East Austin
+                        garden, running on Lady Bird lake, or attending the many art events around town.
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </section>
-    <section class="contact" id="contact">
-        <div class="container max-vh-100">
-            <h1 class="heading"> Request a Call for an Appointment </h1>
-            <div class="box justify-content-left" style="color:white;font-size: large;">
-                <div class="form-field">
+    <section class="referrals">
+        <div class="form-buttons">
+            <button class="button" id="request-button" onClick="request_click()">Request Appointment</button>
+            <button class="button" id="referral-button" onClick="referral_click()">Send Referral</button>
+        </div>
+    </section>
+    <section class="contact">
+        <div id="form_section">
+            <div class="contact container max-vh-85" id="contact">
+                <h1 class="heading"> Request a Call for an Appointment </h1>
+                <div class="box justify-content-left" style="color:white;font-size: large;">
                     <form name="form" action="/call_request" method="POST">
-                        <div class="error success">
-                            <label for="fname">First Name</label>
-                            <input type="text" id="fname" name="fname" placeholder="Your first name..">
+                        <div class="form-field">
+                            <div class="error success">
+                                <label for="fname">First Name</label>
+                                <input type="text" id="fname" name="fname" required>
+                            </div>
+                            <div class="error success">
+                                <label for="lname">Last Name</label>
+                                <input type="text" id="lname" name="lname" required>
+                            </div>
+                            <div class="error success">
+                                <label for="dob">Date of Birth</label>
+                                <input type="date" id="dob" name="dob" required>
+                            </div>
+                            <div class="error success">
+                                <label for="phone">Cell Phone Number</label>
+                                <input type="text" id="phone" name="phone" minlength="10" maxlength="12"
+                                    placeholder="Example - 650-555-1234  or 6505551234" required>
+                            </div>
+                            <div class="error success">
+                                <label for="email">Email</label>
+                                <input type="text" id="email" name="email" required>
+                            </div>
+                            <label for="timeSelection"> Select the best time for scheduler to call.</label>
+                            <select name="timeSelection" id="timeSelection" required>
+                                <option value="nine-eleven">9am-11am</option>
+                                <option value="eleven-one">11am-1pm</option>
+                                <option value="one-three">1pm-3pm</option>
+                                <option value="three-five">3pm-5pm</option>
+                                <option value="five-seven">5pm-7pm</option>
+                            </select>
+                            <label for="dayOfWeek"> Select the day of the week to receive a call.</label>
+                            <select name="dayOfWeek" id="dayOfWeek" required>
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="any">any</option>
+                            </select>
+                            <label for="inusrance">Insurace Provider</label>
+                            <select name="insurance" id="insurance" required>
+                                <option value="Select">---Select an Insurance Provider---</option>
+                                <option value="Medicare">Medicare</option>
+                                <option value="Aetna">Aetna</option>
+                                <option value="All Savers">All Savers</option>
+                                <option value="Amerigroup">Amerigroup</option>
+                                <option value="Averde Health">Averde Health</option>
+                                <option value="BCBS Texas">BCBS Texas</option>
+                                <option value="Beech Street">Beech Street</option>
+                                <option value="Blue Cross Blue Shield">Blue Cross Blue Shield</option>
+                                <option value="Cigna">Cigna</option>
+                                <option value="Community Care">Community Care</option>
+                                <option value="First Care">First Care</option>
+                                <option value="Health Smart Accel">Health Smart Accel</option>
+                                <option value="Integrated Medical System">Integrated Medical System</option>
+                                <option value="Mediview">Mediview</option>
+                                <option value="Palmetto">Palmetto</option>
+                                <option value="PHCS">PHCS</option>
+                                <option value="Seton Health">Seton Health</option>
+                                <option value="Tricare">Tricare</option>
+                                <option value="United Health Care">United Health Care</option>
+                                <option value="USA Managed Care">USA Managed Care</option>
+                                <option value="Wellmed">Wellmed</option>
+                                <option value="other">Other</option>
+                                <option value="cash">Cash Pay</option>
+                            </select>
+                            <div class="error success">
+                                <label for="policy_id">Policy ID Number</label>
+                                <input type="text" id="policy_id" name="policy_id" required>
+                            </div>
+                            <label for="subject">Subject</label>
+                            <textarea id="subject" name="subject" placeholder="Optional..."></textarea><br>
+                            <br>
                         </div>
-                        <div class="error success">
-                            <label for="lname">Last Name</label>
-                            <input type="text" id="lname" name="lname" placeholder="Your last name..">
+                        <div id="consent">
+                            <label for="checkbox" class="checkbox">
+                                <input id="_checkbox" type="checkbox" name="checkbox" required />
+                                By submitting this form you are agreeing to this information being
+                                emailed to the scheduling team at Sleep Medicine Consultants. You are also agreeing to
+                                communications via email, text
+                                and phone calls for the purposes of scheduling appointments.<br>
+                                Because we provide all clinical services via telemedicine, we require cell-phone and
+                                email communications
+                                to ensure communication contact attempts are successful. We will not use your
+                                information for marketing purposes nor will
+                                we share your information with other companies.
+                            </label>
                         </div>
-                        <div class="error success">
-                            <label for="phone">Phone Number</label>
-                            <input type="text" id="phone" name="phone" minlength="10" maxlength="12"
-                                placeholder="Your phone number..">
-                        </div>
-                        <div class="error success">
-                            <label for="email">Email</label>
-                            <input type="text" id="email" name="email" placeholder="Your e-mail address..">
-                        </div>
-                        <label for="timeSelection"> Select the best time to call.</label>
-                        <select name="timeSelection" id="timeSelection">
-                            <option value="nine-eleven">9am-11am</option>
-                            <option value="eleven-one">11am-1pm</option>
-                            <option value="one-three">1pm-3pm</option>
-                            <option value="three-five">3pm-5pm</option>
-                            <option value="five-seven">5pm-7pm</option>
-                        </select>
-                        <label for="dayOfWeek"> Select the day of the week to receive a call.</label>
-                        <select name="dayOfWeek" id="dayOfWeek">
-                            <option value="Monday">Monday</option>
-                            <option value="Tuesday">Tuesday</option>
-                            <option value="Wednesday">Wednesday</option>
-                            <option value="Thursday">Thursday</option>
-                            <option value="Friday">Friday</option>
-                            <option value="any">any</option>
-                        </select>
-                        <label for="subject">Subject</label>
-                        <textarea id="subject" name="subject" placeholder="Optional..."></textarea><br>
-                        <br>
-                        <!-- <input id="_checkbox" type="checkbox" name="checkbox"/>
-                        <label for="checkbox" class="checkbox"> 
-                            By submitting this form you are agreeing to this information being
-                            emailed to the scheduling team at Sleep Medicine Consultants. You are also agreeing to
-                            communications via email, text
-                            and phone calls for the purposes of scheduling.</label> -->
                         <div class="form-field">
                             <input class="submit" type="submit" name="submit" value="Submit" />
                         </div>
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="referrals">
-        <h1 class="heading" id="referrals"> Referrals </h1>
-        <div class="container max-vh-100">
-            <div class="box" data-aos="fade-left">
-                <div class="form-field" style="color:black;font-size: large;">
-                    <form name="form" action="/refer_patient" method="POST" enctype="multipart/form-data">
-                        <div class="error success">
-                            <label for="referring">Referring Provider Name</label>
-                            <input type="text" id="referring" name="referring" required>
-                        </div>
-                        <div class="error success">
-                            <label for="clinic">Referring Clinic Name</label>
-                            <input type="text" id="clinic" name="clinic">
-                        </div>
-                        <div class="error success">
-                            <label for="specialty">Referring Provider's Specialty</label>
-                            <input type="text" id="specialty" name="specialty" required>
-                        </div>
-                        <div class="error success">
-                            <label for="referral_contact">Referring Provider's Contact Information</label>
-                            <input type="text" id="referral_contact" name="referral_contact" required>
-                        </div>
-                        <div class="error success">
-                            <label for="reason">Reason for referral</label>
-                            <input type="text" id="reason" name="reason" required>
-                        </div>
-                        <div class="error success">
-                            <label for="fname">Patient First Name</label>
-                            <input type="text" name="fname" required>
-                        </div>
-                        <div class="error success">
-                            <label for="lname">Patient Last Name</label>
-                            <input type="text" name="lname" required>
-                        </div>
-                        <div class="error success">
-                            <label for="phone">Patient Phone Number (ex. 222-22-2222 or 222222222)</label>
-                            <input type="text" name="phone" minlength="10" maxlength="12" required>
-                        </div>
-                        <label for="additional">Additional Information</label>
-                        <textarea id="subject" name="additional" placeholder="Optional..."></textarea><br>
-                        <br>
-                        <input type="file" id="file" name="file" multiple> <br>
-                        <div class="form-field">
-                            <input class="submit" type="submit" name="submit" value="Submit"  id="submit_referral"/>
-                        </div>
-                    </form>
+            <div class="container max-vh-85" id="referrals">
+                <h1 class="heading"> Referrals </h1>
+                <div class="box" data-aos="fade-left">
+                    <div class="form-field" style="color:black;font-size: large;">
+                        <form name="form" action="/refer_patient" method="POST" enctype="multipart/form-data">
+                            <div class="error success">
+                                <label for="referring">Referring Provider Name</label>
+                                <input type="text" id="referring" name="referring" required>
+                            </div>
+                            <div class="error success">
+                                <label for="clinic">Referring Clinic Name</label>
+                                <input type="text" id="clinic" name="clinic">
+                            </div>
+                            <div class="error success">
+                                <label for="specialty">Referring Provider's Specialty</label>
+                                <input type="text" id="specialty" name="specialty" required>
+                            </div>
+                            <div class="error success">
+                                <label for="referral_contact">Referring Provider's Contact Information</label>
+                                <input type="text" id="referral_contact" name="referral_contact" required>
+                            </div>
+                            <div class="error success">
+                                <label for="reason">Reason for referral</label>
+                                <input type="text" id="reason" name="reason" required>
+                            </div>
+                            <div class="error success">
+                                <label for="fname">Patient First Name</label>
+                                <input type="text" name="fname" required>
+                            </div>
+                            <div class="error success">
+                                <label for="lname">Patient Last Name</label>
+                                <input type="text" name="lname" required>
+                            </div>
+                            <div class="error success">
+                                <label for="phone">Patient Phone Number (ex. 222-22-2222 or 222222222)</label>
+                                <input type="text" name="phone" minlength="10" maxlength="12" required>
+                            </div>
+                            <label for="additional">Additional Information</label>
+                            <textarea id="subject" name="additional" placeholder="Optional..."></textarea><br>
+                            <br>
+                            <input type="file" id="file" name="file" multiple> <br>
+                            <div class="form-field">
+                                <input class="submit" type="submit" name="submit" value="Submit" id="submit_referral"
+                                    style="padding-bottom:1rem" />
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
+            <fieldset class="wrapper" id="loading" style="display: none">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="shadow"></div>
+                <div class="shadow"></div>
+                <div class="shadow"></div>
+                <span>Submitting Request</span>
+            </fieldset>
         </div>
-        <fieldset class="wrapper" id="loading" style="display: none"  >
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="shadow"></div>
-            <div class="shadow"></div>
-            <div class="shadow"></div>
-            <span>Submitting Request</span>
-        </fieldset>
     </section>
-
-
-    <h1 class="heading" id="location"> Location </h1>
+    <h1 class="heading" id="location"> Location </h1><br>
     <section class="location">
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.4903302873054!2d-97.76145808448305!3d30.33701181164619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644cae6b54e7dbd%3A0xb3da5f3334a6a875!2sSleep%20Medicine%20Consultants!5e0!3m2!1sen!2sgr!4v1647780984219!5m2!1sen!2sgr"
@@ -477,7 +608,7 @@
         </div>
     </section>
     <section class="post" id="posts">
-        <div class="container min-vh-100">
+        <div class="container min-vh-85">
             <h1 class="heading"><span></span> we treat a variety of <br>sleep disorders <span></span></h1>
             <div class="box-container">
                 <div class="box" data-aos="fade-right">
@@ -486,8 +617,9 @@
                         <h3>OSA-obstructive sleep apnea</h3>
                         <p>When breathing becomes shallow or pauses for 10 seconds or more due to the soft pallat
                             collapsing and obstructing the airway, often accompanied by snoring.</p>
-                        <a href="https://www.aastweb.org/blog/what-is-sleep-apnea" target="_blank"><button
-                                class="button">learn more</button></a>
+                        <div class="learn-more-div">
+                            <a href="https://www.aastweb.org/blog/what-is-sleep-apnea" target="_blank"><button
+                                    class="learn-more">learn more</button></a></div>
                     </div>
                 </div>
                 <div class="box-container">
@@ -497,8 +629,9 @@
                             <h3>CSA-central sleep apnea</h3>
                             <p>When breathing pauses for 10 seconds or more due to the brain telling the body not to
                                 breath.</p>
-                            <a href="https://www.aastweb.org/blog/what-is-sleep-apnea" target="_blank"><button
-                                    class="button">learn more</button></a>
+                            <div class="learn-more-div">
+                                <a href="https://www.aastweb.org/blog/what-is-sleep-apnea" target="_blank"><button
+                                        class="learn-more">learn more</button></a></div>
                         </div>
                     </div>
                 </div>
@@ -509,8 +642,9 @@
                             <h3>Snoring</h3>
                             <p>When the soft pallat becomes floppy and vibrates during inhale. Snoring is associated
                                 with higher risk for having a stroke.</p>
-                            <a href="https://www.aastweb.org/blog/does-snoring-increase-the-risk-of-stroke"
-                                target="_blank"><button class="button">learn more</button></a>
+                            <div class="learn-more-div">
+                                <a href="https://www.aastweb.org/blog/does-snoring-increase-the-risk-of-stroke"
+                                    target="_blank"><button class="learn-more">learn more</button></a></div>
                         </div>
                     </div>
 
@@ -524,8 +658,10 @@
                                 circadian rhythm disorders are delayed sleep phase disorder (DSPD), Advanced sleep phase
                                 disorder (ASPD),Shift work disorder, jet lag, and non-24-hour sleep wake rhythm
                                 disorder. </p>
-                            <a href="https://www.aastweb.org/blog/does-snoring-increase-the-risk-of-stroke"
-                                target="_blank"><button class="button">learn more</button></a>
+                            <div class="learn-more-div">
+
+                                <a href="https://www.aastweb.org/blog/does-snoring-increase-the-risk-of-stroke"
+                                    target="_blank"><button class="learn-more">learn more</button></a></div>
                         </div>
                     </div>
                     <div class="box" data-aos="fade-left">
@@ -537,8 +673,9 @@
                             <p>A variety of conditions where a person is excessively tired or sleeps longer hours than
                                 the norm. Some examples include Narcolepsy, Kleine-Levin Syndrome and idiopathic
                                 hypersomnia. </p>
-                            <a href="https://www.sleepfoundation.org/hypersomnia#:~:text=Hypersomnia%20is%20a%20medical%20term,has%20no%20known%20underlying%20cause."
-                                target="_blank"><button class="button">learn more</button></a>
+                            <div class="learn-more-div">
+                                <a href="https://www.sleepfoundation.org/hypersomnia#:~:text=Hypersomnia%20is%20a%20medical%20term,has%20no%20known%20underlying%20cause."
+                                    target="_blank"><button class="learn-more">learn more</button></a></div>
                         </div>
                     </div>
                     <div class="box" data-aos="fade-left">
@@ -549,8 +686,9 @@
                             </a>
                             <p>Inability to fall asleep, stay asleep or waking early and unable to get back to sleep.
                             </p>
-                            <a href="https://www.aastweb.org/blog/insomnia-types-diagnosis-and-treatment"
-                                target="_blank"><button class="button">learn more</button></a>
+                            <div class="learn-more-div">
+                                <a href="https://www.aastweb.org/blog/insomnia-types-diagnosis-and-treatment"
+                                    target="_blank"><button class="learn-more">learn more</button></a></div>
                         </div>
                     </div>
                 </div>
@@ -591,12 +729,11 @@
     <section class="footer">
         <div class="container">
             <div class="row" data-aos="fade-up">
-                <img src="images/LogoFinal.png" alt="" class="footer logo" />
+                <img src="../static/images/LogoFinal.png" alt="" class="footer logo" />
                 <a href="#" class="logoTitle">
                     <span>S</span>leep<span>M</span>edicine<span>C</span>onsultants</a>
-                <p>Dedicated to serving the community of the austin texas, making the clincal evaluation, testing and
-                    treatment process
-                    easier and personalized for each individual.
+                <p>Dedicated to serving the community of Austin Texas, making the clincal evaluation, testing and
+                    treatment process easier and personalized for each individual.
                 </p>
             </div>
         </div>
@@ -604,24 +741,8 @@
         </h1>
         </div>
     </section>
-
+    <div id="overlay"></div>
     <script src="../static/js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"
-        integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
-        integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script>
-        AOS.init({
-            duration: 1000,
-            delay: 400
-        })
-    </script>
 </body>
 
 </html>

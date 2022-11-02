@@ -33,6 +33,7 @@ def email(subject, to_email, message, file=None):
     outlook_app = win32.Dispatch('Outlook.Application')
     outlook_object = outlook_app.GetNameSpace('MAPI')
 
+
     print(message)
     # constructing the email item object
     mail_item = outlook_app.CreateItem(0)
@@ -41,7 +42,7 @@ def email(subject, to_email, message, file=None):
     mail_item.BodyFormat = 1
     mail_item.Body = message
     mail_item.To = to_email
-    mail_item.From = 'do-not-reply@some_outlook_email.com'
+    # mail_item.From = 'j.pitman@nioa.gr'
 
     if file != None:
         if allowed_file(file.filename):
@@ -73,23 +74,27 @@ def email(subject, to_email, message, file=None):
     return
 
 
-def call_request_message_to_schedulers(fname, lname, phone, email, time_selection, day_of_week,additional_info):
+def call_request_message_to_schedulers(fname, lname, date_of_birth, phone, pt_email, time_selection, day_of_week,additional_info, insurance, policy):
     """creating the call request email to send to the schedulers"""
 
     subject = f"SECURE: Phone Call Request: {day_of_week} at {time_selection}"
     to_email = "email_to_schedulers@outlook.com"
 
 
-     # Create the plain-text and HTML version of  message
+    # Create the plain-text and HTML version of  message
     message = f"""
-    A request for a phone call has been placed:<br>
+    A request for a phone call has been placed:
 
     First Name: {fname}
     Last Name: {lname}
+    DOB: {date_of_birth}
     Phone Number: {phone}
-    Email: {email}
+    Email: {pt_email}
     Time Patient is Available to take Call: {time_selection} - Day: {day_of_week}
     Subject: {additional_info}
+    Insurance: {insurance}
+    Policy ID: {policy}
+
 
     """
     #if html format for email is wanted: 
@@ -115,62 +120,36 @@ def call_request_message_to_schedulers(fname, lname, phone, email, time_selectio
     return 
 
 
-def call_request_message_to_patient(fname, lname, phone, email, time_selection, day_of_week,additional_info):
+def call_request_message_to_patient(fname, pt_email, time_selection, day_of_week):
     """creating the call request email to send paperwork links to patient to fill out and confirmation of request"""
 
-    subject = f"Sleep Medicine Consultants Phone Call Request Confirmation"
-    to_email = email
-
-
-     # if the plain-text version of message is wanted
-    # message = f"""
-    # Your request for a phone call to schedule an appointment has been successfully placed.
-
-    # {fname}, 
-    
-    # Please fill out the following forms to expedite the process for intake: 
-
-    # https://hushforms.com/sleepdoc-9962
-    # https://hushforms.com/sleepdoc-3403
-    # https://hushforms.com/sleepdoc-9292
-    # https://www.sleepdoc.net/_files/ugd/657de1_66294ef1daa844719ba2bf42f979441a.pdf
-    # https://hushforms.com/formcovid2020
-    # https://secure.hushmail.com/mail/?secureform=financial&subject=Sleep%20Medicine%20Consultants%3A%20Financial%20Form#compose
-    
-    # We look forward to helping improve your sleep!  
-    
-    
-    # Sincerely,
-    
-    
-    # Sleep Medicine Consultants
-
-    # """
+    subject = f"Sleep Medicine Consultants Appointment Request Confirmation"
+    to_email = pt_email
+   
     message = f"""
-    <html>
-    <body>
-        <p>
-    Your request for a phone call has been placed:<br>
 
-    {fname},<br>
-    Please fill out the following forms to expedite the process for intake: <br><br> 
+    Your request for a phone call has been placed:
 
-    <a href="https://hushforms.com/sleepdoc-9962" rel="noopener noreferrer" target="_blank">Sleep
-                    History Questionnaire</a>
-                <a href="https://hushforms.com/sleepdoc-3403" rel="noopener noreferrer" target="_blank">CSA Form</a>
-                <a href="https://hushforms.com/sleepdoc-9292" rel="noopener noreferrer" target="_blank">AOB Form</a>
-                <a href="https://www.sleepdoc.net/_files/ugd/657de1_66294ef1daa844719ba2bf42f979441a.pdf"
-                    rel="noopener noreferrer" target="_blank">Epworth Form</a>
-                <a href="https://hushforms.com/formcovid2020" rel="noopener noreferrer" target="_blank">COVID
-                    Form</a>
-                <a href="https://secure.hushmail.com/mail/?secureform=financial&subject=Sleep%20Medicine%20Consultants%3A%20Financial%20Form#compose"
-                    rel="noopener noreferrer" target="_blank">Financial Form</a>
-    <br><br>
+    {fname},
+    Your request for scheduling an appointment has been submitted to our scheduling team.  We will do our best to call you on a {day_of_week} between {time_selection}.
+    With the insurance information you provided, we are verifying your insurance and the associated costs so that we have this information when we contact you to schedule the appointment.
+    This process usually takes 2-5 business days, you will hear from us once this is complete.
+    
+    In the meantime, please fill out the following intake forms to expedite the process for intake:
+
+    https://hushforms.com/sleepdoc-9962
+    https://hushforms.com/sleepdoc-3403
+    https://hushforms.com/sleepdoc-9292
+    https://www.sleepdoc.net/_files/ugd/657de1_66294ef1daa844719ba2bf42f979441a.pdf
+    https://hushforms.com/formcovid2020
+    https://secure.hushmail.com/mail/?secureform=financial&subject=Sleep%20Medicine%20Consultants%3A%20Financial%20Form#compose
+   
     We look forward to helping improve your sleep!  
-    <br><br>Sincerely,<br><br> Sleep Medicine Consultants
-        </p>
-    </body>
-    </html>
+    
+    Sincerely,
+    
+    
+    Sleep Medicine Consultants
     """
     email(subject, to_email, message)
     return 
@@ -200,35 +179,9 @@ def referral_message_to_schedulers(fname, lname, phone, reason, referring, clini
 
     """
 
-    #if provider prefers HTML format: 
-    # html = f"""
-    # <html>
-    # <body>
-    #     <p>
-    # A referral has been placed:<br><br>
-
-    # <b>Patient Information</b>
-    # <b>First Name:</b> {fname}<br>
-    # <b>Last Name:</b> {lname} <br>
-    # <b>Phone Number:</b> {phone} <br>
-    # <b>Reason for Referral:</b> {reason} <br>
-    # <b>Additional Information (if included)</b> {additional}<br>
-
-    # <b>Referral Source Information</b>
-    # <b>Referral is from :</b> {referring}<br>
-    # <b>Clinic referral is from :</b> {clinic}<br>
-    # <b>Specialty of referring provider :</b> {specialty}<br>
-    # <b>Referral contact info:</b> {referring_contact}<br>
-
-    #     </p>
-    # </body>
-    # </html>
-    # """
      
     email(subject, to_email, message, file)
     return 
-
-
 
 
 @app.route('/')
@@ -244,14 +197,17 @@ def call_requested():
 
     fname = request.form.get('fname')
     lname = request.form.get('lname')
-    email = request.form.get('email')
+    date_of_birth = request.form.get('dob')
+    pt_email = request.form.get('email')
     phone = request.form.get('phone')
     time_selection = request.form.get('timeSelection')
     day_of_week = request.form.get('dayOfWeek')
     additional_info = request.form.get('subject')
+    policy = request.form.get('policy_id')
+    insurance = request.form.get('insurance')
 
-    call_request_message_to_schedulers(fname, lname, email, phone, time_selection, day_of_week, additional_info)
-    call_request_message_to_patient(fname,lname,phone,email,time_selection,day_of_week,additional_info)
+    call_request_message_to_schedulers(fname, lname, date_of_birth, pt_email, phone, time_selection, day_of_week, additional_info, insurance, policy)
+    call_request_message_to_patient(fname, pt_email, time_selection, day_of_week)
 
     return redirect(url_for('successful_call_request'))
 
@@ -296,6 +252,6 @@ def referral_successful():
 
 if __name__ == '__main__':
 
-    # app.run(host='localhost', debug=True, use_reloader=True, port=5000)
+    app.run(host='localhost', debug=True, use_reloader=True, port=5000)
 
-    app.run(host='0.0.0.0', debug=True, use_reloader=True)
+    # app.run(host='0.0.0.0', debug=True, use_reloader=True)

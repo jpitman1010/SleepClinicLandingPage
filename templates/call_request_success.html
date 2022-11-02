@@ -8,10 +8,7 @@
 
     <title>SleepDoc.net</title>
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap-grid.min.css"
-        integrity="sha512-Xj2sd25G+JgJYwo0cvlGWXoUekbLg5WvW+VbItCMdXrDoZRWcS/d40ieFHu77vP0dF5PK+cX6TIp+DsPfZomhw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
         integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -56,8 +53,9 @@
                 </div>
                 <div class="col-md-6 pl-md-5 content" data-aos="fade-left">
                     <h1><span>Sleep </span> better <span>Live </span>Better </h1>
-                    <h3>Your Request for a call has been successfully submitted!
-                        <br>A copy of the request has been sent to you via email.</h3>
+                    <h3 class="success_message">Your Request for a call has been successfully submitted!
+                        <br>While we verify your insurance information, check for an email from us (if not in your inbox please check
+                    spam folder).  We have sent you HIPAA compliant links to fill out paperwork to help expedite the scheduling process.</h3>
                 </div>
             </div>
         </div>
@@ -333,13 +331,17 @@
             </div>
         </div>
     </section>
-    <h1 class="heading" id="location"> Location </h1>
+    <section class="referrals">
+        <div class="form-buttons container min-vh-100" style="color:#fff; padding-bottom:4rem">
+           <p style="font-size: 2rem"> Your appointment request has been successfully submitted.  
+            <br>You will hear from us soon!</p>
+        </div>
+    </section>
     <section class="location">
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.4903302873054!2d-97.76145808448305!3d30.33701181164619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644cae6b54e7dbd%3A0xb3da5f3334a6a875!2sSleep%20Medicine%20Consultants!5e0!3m2!1sen!2sgr!4v1647780984219!5m2!1sen!2sgr"
             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
             data-aos="zoom-in"></iframe><br>
-
         <div class="box-container">
             <div class="box" data-aos="fade-left">
                 <h3>Location</h3><br>
@@ -368,9 +370,9 @@
         </div>
         </div>
     </section>
-    <section class="post" id="posts">
-        <div class="container min-vh-100">
-            <h1 class="heading"><span></span> we treat a variety of <br>sleep disorders <span></span></h1>
+    <section class="post" id="posts" style="background-color: #354046">
+        <div class="container min-vh-100" >
+            <h1 class="heading" style="color:#fff"><span></span> we treat a variety of <br>sleep disorders <span></span></h1>
             <div class="box-container">
                 <div class="box" data-aos="fade-right">
                     <img src="../static/images/osaPic.png" alt="">
@@ -448,8 +450,8 @@
                 </div>
             </div>
     </section>
-    <section class="links">
-        <div class="row">
+    <section class="links" style="color: #354046; background-color:#fff">
+        <div class="row" style="color: #354046; background-color:#fff">
             <div class="column" data-aos="fade-right">
                 <h3>links</h3>
                 <a href="#home">home</a>
