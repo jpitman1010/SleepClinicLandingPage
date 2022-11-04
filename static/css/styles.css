@@ -14,7 +14,6 @@
     border: none !important;
     outline: none !important;
     text-decoration: none !important;
-    text-transform: capitalize;
     font-weight: 400;
     transition: all .2 linear;
 }
@@ -322,6 +321,7 @@ header .fa-times {
 
 
 
+
 .insurance {
     background: url(../images/1541523336.svg), linear-gradient(var(--black), var(--black)) no-repeat;
     box-sizing: cover;
@@ -422,6 +422,8 @@ header .fa-times {
 
 .contact {
     background: #eee;
+    text-align: center;
+    padding: 2vw 4vw;
 }
 
 #contact {
@@ -580,7 +582,11 @@ select {
 
 
 .contact .checkbox {
-    /* text-transform: none; */
+    text-transform: none;
+    color: var(--black);
+}
+
+.contact .checkbox span{
     color: red;
 }
 
@@ -589,7 +595,7 @@ select {
 }
 
 .referrals {
-    background-color: var(--black);
+    background-color: #ccc;
 }
 
 #referrals {
@@ -602,79 +608,6 @@ select {
 }
 
 
-.referrals .container {
-    border-radius: 5px;
-    padding-left: 5rem;
-    padding-right: 5rem;
-}
-
-.referrals input:focus,
-textarea:focus {
-    background-color: lightgray;
-}
-
-
-.referrals .form-field {
-    margin-bottom: 5px;
-}
-
-.referrals .form-field label {
-    display: block;
-    color: black;
-    margin-bottom: 5px;
-}
-
-.referrals .form-field  .submit {
-    height: 8rem;
-    width: 100%;
-    background: var(--blue);
-    color: #fff;
-    font-size: large;
-    border-radius: .5rem;
-    text-transform: capitalize;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    overflow: hidden;
-    margin: 1rem 0;
-}
-
-.referrals .submit::before {
-    content: "";
-    position: absolute;
-    top: -100%;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: var(--black);
-    z-index: -1;
-    transition: .2s linear;
-}
-
-.referrals .submit:hover::before {
-    top: 0%;
-}
-
-.referrals .submit:hover {
-    box-shadow: .1rem .5rem var(--blue),
-        0 .3rem .5rem rgba(0, 0, 0, .3);
-}
-
-.referrals .form-field input {
-    border: 2px solid black;
-    background-color: lightgray;
-    border-radius: 3px;
-    padding: 10px;
-    margin-bottom: 5px;
-    font-size: 14px;
-    display: block;
-    width: 100%;
-}
-
-.referrals .form-field input:focus {
-    outline: black solid 2px;
-}
-
 .contact input:focus,
 textarea {
     background-color: lightgray;
@@ -685,7 +618,6 @@ textarea {
 textarea:focus {
     background-color: lightgray;
 }
-
 
 .location {
     margin-bottom: 2rem;
@@ -737,10 +669,11 @@ textarea:focus {
 .post {
     color: #fff;
     padding-bottom: 8rem;
+    background-color: var(--black);
 }
 
 .post .heading {
-    color: var(--black);
+    color: #fff;
     padding-bottom: 3rem;
 
 }
@@ -798,18 +731,20 @@ textarea:focus {
     text-transform: none;
 }
 
+.links {
+    background-color: #fff;
+}
+
 .links .column {
     float: left;
     width: 50%;
     padding-left: 10rem;
-    background-color: var(--black);
-    color: #fff;
+    color: var(--blue);
 
 }
 
 
 .links .row {
-    background-color: var(--black);
     width: 100%;
     padding-bottom: 8rem;
 }
@@ -819,8 +754,6 @@ textarea:focus {
     content: "";
     display: table;
     clear: both;
-    background-color: var(--black);
-    color: #fff;
     text-align: center;
     width: 100%;
 }
@@ -828,19 +761,14 @@ textarea:focus {
 
 .links a {
     font-size: 2rem;
-    color: #fff;
+    color: blue;
     display: block;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
 
-/* .links .title {
-    margin-top: 3rem;
-    margin-bottom: -4rem;
-} */
-
 .links h3 {
-    color: #fff;
+    color: var(--black);
     font-size: 4rem;
     margin-top: 5rem;
     margin-bottom: 2rem;
@@ -971,9 +899,9 @@ textarea:focus {
 /* media queries */
 
 @media (max-width:759px) {
-    /* html {
+    html {
         font-size: 25%;
-    } */
+    }
 
     header .nav {
         position: fixed;

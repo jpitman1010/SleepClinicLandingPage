@@ -17,7 +17,7 @@ app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
 UPLOAD_FOLDER = "./static/upload"
 app.config[UPLOAD_FOLDER] = UPLOAD_FOLDER
-ALLOWED_EXTENSIONS = {'pdf', 'jpg', 'png', 'jpeg', 'png'}
+ALLOWED_EXTENSIONS = {'pdf', 'jpg', 'png', 'jpeg'}
 
 
 
@@ -74,7 +74,7 @@ def email(subject, to_email, message, file=None):
     return
 
 
-def call_request_message_to_schedulers(fname, lname, date_of_birth, phone, pt_email, time_selection, day_of_week,additional_info, insurance, policy):
+def call_request_message_to_schedulers(fname, lname, date_of_birth, phone, pt_email, time_selection, day_of_week, insurance, policy):
     """creating the call request email to send to the schedulers"""
 
     subject = f"SECURE: Phone Call Request: {day_of_week} at {time_selection}"
@@ -91,7 +91,6 @@ def call_request_message_to_schedulers(fname, lname, date_of_birth, phone, pt_em
     Phone Number: {phone}
     Email: {pt_email}
     Time Patient is Available to take Call: {time_selection} - Day: {day_of_week}
-    Subject: {additional_info}
     Insurance: {insurance}
     Policy ID: {policy}
 
@@ -110,7 +109,6 @@ def call_request_message_to_schedulers(fname, lname, date_of_birth, phone, pt_em
     # <b>Email:</b> {email} <br>
     # <b>Time Patient is Available to take Call:</b> {time_selection}<br>
     # <b>Day of Week to Call Patient:</b> {day_of_week}<br>
-    # <b>Subject:</b> {additional_info}<br>
     #     </p>
     # </body>
     # </html>
@@ -202,11 +200,10 @@ def call_requested():
     phone = request.form.get('phone')
     time_selection = request.form.get('timeSelection')
     day_of_week = request.form.get('dayOfWeek')
-    additional_info = request.form.get('subject')
     policy = request.form.get('policy_id')
     insurance = request.form.get('insurance')
 
-    call_request_message_to_schedulers(fname, lname, date_of_birth, pt_email, phone, time_selection, day_of_week, additional_info, insurance, policy)
+    call_request_message_to_schedulers(fname, lname, date_of_birth, pt_email, phone, time_selection, day_of_week, insurance, policy)
     call_request_message_to_patient(fname, pt_email, time_selection, day_of_week)
 
     return redirect(url_for('successful_call_request'))
@@ -230,7 +227,6 @@ def referral():
     fname = request.form.get('fname')
     lname = request.form.get('lname')
     phone = request.form.get('phone')
-    additional = request.form.get('additional')
     file = request.files.get('file')
 
     session['referring'] = referring
@@ -239,7 +235,7 @@ def referral():
     session['referring_contact'] = referring_contact
 
     
-    referral_message_to_schedulers(fname, lname, phone, reason, referring, clinic, specialty, referring_contact, file, additional)
+    referral_message_to_schedulers(fname, lname, phone, reason, referring, clinic, specialty, referring_contact, file)
    
     return redirect(url_for('referral_successful'))
 

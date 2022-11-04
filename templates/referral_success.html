@@ -5,31 +5,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>SleepDoc.net</title>
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap-grid.min.css"
-        integrity="sha512-Xj2sd25G+JgJYwo0cvlGWXoUekbLg5WvW+VbItCMdXrDoZRWcS/d40ieFHu77vP0dF5PK+cX6TIp+DsPfZomhw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-        integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
-        integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../static/css/loading.css" />
 </head>
 
 <body>
     <header>
         <div clsas="container">
-            <!-- <a href="#" class="logo"><img class="logo" src="../static/images/LogoFinal.png"
-                    alt=""><span>S</span>leep <span>M</span>edicine <span>C</span>onsultants</a> -->
-
             <img src="../static/images/LogoFinal.png" alt="" class="logo" />
             <a href="#" class="logo"><span>S</span>leep<span>M</span>edicine<span>C</span>onsultants</a>
             <nav class="nav">
@@ -37,10 +31,9 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#facility">Facility</a></li>
-                    <li><a href="#contact">Schedule</a></li>
                     <li><a href="#location">Location</a></li>
                     <li><a href="#posts">learn more</a></li>
-                    <li><a href="#referrals">referrals</a></li>
+                    <li><a href="#contact_forms" data-toggle="modal" data-target="#referral">referrals</a></li>
                     <li><a href="https://sso.azaleahealth.com/" rel="noopener noreferrer" target="_blank">patient
                             portal</a></li>
                 </ul>
@@ -58,7 +51,10 @@
                     <h1><span>Sleep </span> better <span>Live </span>Better </h1>
                     <h3>we are here for you!<br>
                         The referral has successfully been sent to our team.</h3>
-                    <a href="#referrals"><button class="button">Send another referral?</button></a>
+                    <button type="button" class="btn btn-primary btn-group-lg mx-3 h5" data-toggle="modal"
+                        data-target="#referral">
+                        Submit Another Referral?
+                    </button>
                 </div>
             </div>
         </div>
@@ -70,9 +66,7 @@
                 <div class="col-md-6 content" data-aos="fade-right">
                     <div class="box">
                         <h3><i class="fas fa-solid fa-house-chimney-medical"></i> Clinical Services </h3>
-                        <p>We treat all variety of sleep disorders offering virtual visits with extended hours and on
-                            weekends for your convenience.
-
+                        <p>We treat all variety of sleep disorders offering virtual visits.
                         </p>
                     </div>
                     <div class="box">
@@ -301,8 +295,8 @@
     <section class="providers" id="providers">
         <div class="container">
             <h1 class="heading"> our providers </h1>
-            <div class="container min-vh-100">
-                <div class="box-container">
+            <div class="row">
+                <div class="box-container col-sm">
                     <div class="box" data-aos="fade-right" title="Dr. Desai">
                         <img src="../static/images/bhavim.png" alt="">
                         <div class="content">
@@ -315,17 +309,104 @@
                             <h4>Training:</h4>
                             <h5>sleep medicine fellowship with the
                                 University of Arizona in Tucson</h5>
+                            <button type="button" class="btn btn-primary btn-block" data-toggle="modal"
+                                data-target="#desaiPopup">
+                                Learn More
+                            </button>
                         </div>
                     </div>
-                    <div class="box-container">
-                        <div class="box" data-aos="fade-left" title="Monique Mulvany, N.P.">
-                            <img src="../static/images/monique.jpg" alt="">
-                            <div class="content">
-                                <h3>Monique Mulvany, N.P.</h3><br><br><br>
-                                <h4>Specialty:</h4>
-                                <h5>family nurse practioner, sleep specialty- 2006</h5>
-                                <h4>Training:</h4>
-                                <h5> Spring Hill College in Mobile, Alabama</h5>
+                </div>
+                <div class="modal fade" id="desaiPopup" tabindex="-1" role="dialog"
+                    aria-labelledby="Learn More About Dr. Desai" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="desai-title">Bhavim Desai, M.D.</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Dr. Desai is a Sleep Medicine Specialist with an extensive background in family
+                                medicine, urgent care and hospitalist work. His dynamic background, as well as his
+                                training in Sleep
+                                Medicine, makes him a... <br><br>
+                                Dr. Desai completed his sleep medicine fellowship at Banner Medical Center with the
+                                University of Arizona in Tucson. He is board-certified in Family Medicine and uses this
+                                whole body
+                                primary care focus in approaching patients with sleep disorders. He trained at St. Mary
+                                Mercy Hospital
+                                near Detroit. <br><br>
+                                Prior to that he attended The School of Medicine at the University of South Carolina.
+                                He has vast knowledge on all areas of sleep disorders including hypersomnia,
+                                insomnia, parasomnia, sleep apnea and movement disorders.
+                                <br><br> In his free time he enjoys exploring all that Austin has to offer as well as
+                                outdoor
+                                activities, kitesurfing and
+                                hiking.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-container col-sm">
+                    <div class="box" data-aos="fade-left" title="Monique Mulvany, N.P.">
+                        <img src="../static/images/monique.jpg" alt="">
+                        <div class="content">
+                            <h3>Monique Mulvany, N.P.</h3><br>
+                            <h4>Specialty:</h4>
+                            <h5>family nurse practioner, sleep specialty- 2006</h5>
+                            <h4>Training:</h4>
+                            <h5> Spring Hill College in Mobile, Alabama</h5>
+                            <button type="button" class="btn btn-primary btn-block btn-lg" data-toggle="modal"
+                                data-target="#mulvanyPopup">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="mulvanyPopup" tabindex="-1" role="dialog"
+                    aria-labelledby="Learn More About Dr. Desai" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="mulvany-title">Monique Mulvany, N.P.</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Monique Sommer Mulvany is a Family Nurse Practitioner
+                                specializing in sleep disorders since 2006. Monique is an established and
+                                knowledgeable
+                                Advanced Practice Nurse who is active in current sleep-related research and
+                                patient care.
+                                <br><br>She has established and maintains relationships with a national network
+                                of sleep
+                                medicine experts to advance her expertise in treating a wide range of sleep
+                                disorders.
+                                <br><br>Monique is originally from Brownwood, Texas <b>(go Lions!)</b> and in
+                                2000
+                                graduated with honors from Spring Hill College in Mobile, Alabama where she
+                                received her Bachelor of Science in Nursing. Working in Orthopedic, Neuro,
+                                Spinal Trauma
+                                at Brackenridge Hospital is where she met friends and colleagues with whom she
+                                still collaborates to this day. Attending the University of Texas at Austin, she
+                                graduated with honors in 2006 with her Master's Degree in Nursing - Family Nurse
+                                Practitioner.
+                                <br><br>Monique is married to local Irish-Texan artist and art educator, John
+                                Mulvany,
+                                and has two sons - Henry and Cormac. Monique is a passionate patient advocate
+                                and is
+                                driven to help her patients achieve a more meaningful life through better sleep.
+                                When Monique is not helping patients she is often tending to her East Austin
+                                garden, running on Lady Bird lake, or attending the many art events around town.
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -333,70 +414,186 @@
             </div>
         </div>
     </section>
-    
-    <section class="referrals">
-        <h1 class="heading" id="referrals"> Submit Another Referral </h1>
-        <div class="container max-vh-100">
-            <div class="box" data-aos="fade-left">
-                <div class="form-field" style="color:black;font-size: large;">
-                    <form name="form" action="/refer_patient" method="POST"  enctype="multipart/form-data">
-                        <div class="error success">
-                            <label for="referring">Referring Provider Name</label>
-                            <input type="text" id="referring" name="referring" value="{{session['referring']}}" required>
-                        </div>
-                        <div class="error success">
-                            <label for="clinic">Referring Clinic Name</label>
-                            <input type="text" id="clinic" name="clinic" value="{{session['clinic']}}" required>
-                        </div>
-                        <div class="error success">
-                            <label for="specialty">Referring Provider's Specialty</label>
-                            <input type="text" id="specialty" name="specialty" value="{{session['specialty']}}" required>
-                        </div>
-                        <div class="error success">
-                            <label for="referring_contact">Referring Provider's Contact Information</label>
-                            <input type="text" id="referring_contact" name="referring_contact"
-                                value="{{session['referring_contact']}}" required>
-                        </div>
-                        <div class="error success">
-                            <label for="reason">Reason for referral</label>
-                            <input type="text" id="reason" name="reason" required>
-                        </div>
-                        <div class="error success">
-                            <label for="fname">Patient First Name</label>
-                            <input type="text" id="fname" name="fname" required>
-                        </div>
-                        <div class="error success">
-                            <label for="lname">Patient Last Name</label>
-                            <input type="text" id="lname" name="lname" required>
-                        </div>
-                        <div class="error success">
-                            <label for="phone">Patient Phone Number (ex. 222-22-2222 or 2222222222)</label>
-                            <input type="text" id="phone" name="phone" minlength="10" maxlength="12" required>
-                        </div>
-                        <label for="additional">Additional Information</label>
-                        <textarea id="subject" name="additional" placeholder="Optional..."></textarea><br>
-                        <br>
-                        <br>
-                        <input type="file" id="file" name="file" > <br>
-                        <div class="form-field">
-                            <input class="submit" type="submit" name="submit" value="Submit" id="submit_referral"/>
-                        </div>
-                    </form>
-                    <fieldset class="wrapper" id="loading" style="display: none"  >
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="shadow"></div>
-                        <div class="shadow"></div>
-                        <div class="shadow"></div>
-                        <span>Submitting Request</span>
-                    </fieldset>
+    <section id="contact_forms" class="contact">
+        <button type="button" class="btn btn-primary btn-group-lg mx-3 h5" data-toggle="modal" data-target="#referral">
+            Submit Another Referral
+        </button>
+        <div class="form-container">
+
+            <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="Request Appointment"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content" style="background-color: #ccc">
+                        <form name="form" action="/call_request" method="POST">
+                            <div class="modal-header">
+                                <h1 class="modal-title" id="contact-title">Request an Appointment</h1>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container">
+                                    <div class="error success form-group">
+                                        <label for="fname">First Name</label>
+                                        <input type="text" id="fname" name="fname" required
+                                            class="validity valueMissing form-control">
+                                    </div>
+                                    <div class="error success form-group">
+                                        <label for="lname">Last Name</label>
+                                        <input type="text" id="lname" name="lname" required
+                                            class="validity valueMissing form-control">
+                                    </div>
+                                    <div class="error success form-group">
+                                        <label for="dob">Date of Birth</label>
+                                        <input type="date" id="dob" name="dob" required class="form-control">
+                                    </div>
+                                    <div class="error success form-group">
+                                        <label for="phone">Cell Phone Number</label>
+                                        <input type="tel" id="phone" name="phone" minlength="10" maxlength="12"
+                                            placeholder="Example - 650-555-1234  or 6505551234" required
+                                            class="form-control">
+                                    </div>
+                                    <div class="error success form-group">
+                                        <label for="email">Email</label>
+                                        <input type="text" id="email" name="email" required class="form-control">
+                                    </div>
+                                    <div class="error success form-group">
+                                        <label for="timeSelection"> Select the best time for scheduler to call.</label>
+                                        <select name="timeSelection" id="timeSelection" required class="form-control">
+                                            <option value="nine-eleven">9am-11am</option>
+                                            <option value="eleven-one">11am-1pm</option>
+                                            <option value="one-three">1pm-3pm</option>
+                                            <option value="three-five">3pm-5pm</option>
+                                            <option value="five-seven">5pm-7pm</option>
+                                        </select>
+                                    </div>
+                                    <div class="error success form-group">
+                                        <label for="dayOfWeek"> Select the day of the week to receive a call.</label>
+                                        <select name="dayOfWeek" id="dayOfWeek" required class="form-control">
+                                            <option value="Monday">Monday</option>
+                                            <option value="Tuesday">Tuesday</option>
+                                            <option value="Wednesday">Wednesday</option>
+                                            <option value="Thursday">Thursday</option>
+                                            <option value="Friday">Friday</option>
+                                            <option value="any">any</option>
+                                        </select>
+                                    </div>
+                                    <div id="insurance_div" class="form-group">
+                                        <label for="insurance">Insurance Company Name</label>
+                                        <input type="text" id="insurance" name="insurance" required
+                                            class="form-control">
+                                    </div>
+                                    <div class="error success form-group">
+                                        <label for="policy_id">Policy ID Number</label>
+                                        <input type="text" id="policy_id" name="policy_id" required
+                                            class="form-control">
+                                    </div>
+                                    <div class="error success form-group">
+                                        <label for="subject">Subject</label>
+                                        <textarea id="subject" name="subject" placeholder="Optional..."
+                                            class="form-control"></textarea><br>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="error success form-group" id="consent">
+                                    <label for="checkbox" class="checkbox">
+                                        <input id="_checkbox" type="checkbox" name="checkbox" required>
+                                        By submitting this form you are agreeing to this information being
+                                        emailed to the scheduling team at Sleep Medicine Consultants. You are also
+                                        agreeing
+                                        to
+                                        communications via email, text
+                                        and phone calls for the purposes of scheduling appointments.<br>
+                                        Because we provide all clinical services via telemedicine, we require
+                                        cell-phone and
+                                        email communications
+                                        to ensure communication contact attempts are successful. We will not use
+                                        your
+                                        information for marketing purposes nor will
+                                        we share your information with other companies.
+                                    </label>
+                                    <button type="submit" class="btn btn-primary btn-default">Submit</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div><br>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade" id="referral" tabindex="-1" role="dialog" aria-labelledby="Send Referral"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content" style="background-color: #ccc">
+                        <form name="form" action="/refer_patient" method="POST" enctype="multipart/form-data">
+                            <div class="modal-header">
+                                <h1 class="modal-title" id="referral-title">Refer a Patient</h1>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container">
+                                    <div class="error success form-group">
+                                        <label for="referring">Referring Provider Name</label>
+                                        <input type="text" class="form-control has-success has-error" name="referring"
+                                            required value="{{session['referring']}}">
+                                    </div>
+                                    <div class="error success form-group">
+                                        <label for="clinic">Referring Clinic Name</label>
+                                        <input type="text" class="form-control  has-success has-error" name="clinic"
+                                            value="{{session['clinic']}}">
+                                    </div>
+                                    <div class="error success form-group">
+                                        <label for="specialty">Referring Provider's Specialty</label>
+                                        <input type="text" class="form-control  has-success has-error" name="specialty"
+                                            value="{{session['specialty']}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="referral_contact">Referring Provider's Contact Information</label>
+                                        <input type="text" class="form-control  has-success has-error"
+                                            name="referral_contact" value="{{session['referring_contact']}}" required>
+                                    </div>
+                                    <div class="error success form-group">
+                                        <label for="reason">Reason for referral</label>
+                                        <input type="text" class="form-control  has-success has-error" name="reason"
+                                            required>
+                                    </div>
+                                    <div class="error success form-group">
+                                        <label for="fname">Patient First Name</label>
+                                        <input type="text" class="form-control  has-success has-error" name="fname"
+                                            required>
+                                    </div>
+                                    <div class="error success form-group">
+                                        <label for="lname">Patient Last Name</label>
+                                        <input type="text" class="form-control  has-success has-error" name="lname"
+                                            required>
+                                    </div>
+                                    <div class="error success form-group">
+                                        <label for="phone">Patient Phone Number (ex. 222-22-2222 or 222222222)</label>
+                                        <input type="text" class="form-control  has-success has-error" name="phone"
+                                            minlength="10" maxlength="12" required>
+                                    </div>
+                                    <label for="additional form-group">Additional Information</label>
+                                    <textarea class="form-control" name="additional"
+                                        placeholder="Optional..."></textarea><br>
+                                    <br>
+                                    <input type="file" id="file" name="file" multiple> <br>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary" data-dismiss="modal">Submit</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-
     <h1 class="heading" id="location"> Location </h1>
     <section class="location">
         <iframe
@@ -519,12 +716,12 @@
                 <a href="#home">home</a>
                 <a href="#about">about</a>
                 <a href="#facility">facility</a>
-                <a href="#facility">Team Info</a>
+                <a href="#providers">Providers</a>
                 <a href="#location">location</a>
-                <a href="#location">Request a call</a>
+                <li><a href="#contact_forms" data-toggle="modal" data-target="#contact">Schedule Appointment</a></li>
                 <a href="#posts">learn more</a>
-                <a href="referrals">referrals</a>
-                <a href="url('https://sso.azaleahealth.com/')" rel="noopener noreferrer" target="_blank">patient
+                <a href="#contact_forms" data-toggle="modal" data-target="#referral">referrals</a>
+                <a href="https://sso.azaleahealth.com/" rel="noopener noreferrer" target="_blank">patient
                     portal</a>
             </div>
             <div class="column" data-aos="fade-left">
@@ -547,7 +744,7 @@
     <section class="footer">
         <div class="container">
             <div class="row" data-aos="fade-up">
-                <img src="images/LogoFinal.png" alt="" class="footer logo" />
+                <img src="../static/images/LogoFinal.png" alt="" class="footer logo" />
                 <a href="#" class="logoTitle">
                     <span>S</span>leep<span>M</span>edicine<span>C</span>onsultants</a>
                 <p>Dedicated to serving the community of the austin texas, making the clincal evaluation, testing and
@@ -565,15 +762,15 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"
-    integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
-    integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+        integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="./static/js/main.js"></script>
     <script>
         AOS.init({
