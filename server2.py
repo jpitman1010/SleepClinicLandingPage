@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 import win32com.client as win32
 from jinja2 import StrictUndefined
 from flask import Flask, render_template, request, flash, session, redirect, url_for
@@ -18,6 +19,13 @@ app.jinja_env.undefined = StrictUndefined
 UPLOAD_FOLDER = "./static/upload"
 app.config[UPLOAD_FOLDER] = UPLOAD_FOLDER
 ALLOWED_EXTENSIONS = {'pdf', 'jpg', 'png', 'jpeg'}
+load_dotenv()
+
+value = os.getenv("value")
+secret = os.getenv("secret")
+do_not_reply = os.getenv("do_not_reply")
+schedulers_email = os.get("schedulers_email")
+
 
 
 
