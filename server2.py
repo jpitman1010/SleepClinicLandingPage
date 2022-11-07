@@ -24,7 +24,7 @@ load_dotenv()
 value = os.getenv("value")
 secret = os.getenv("secret")
 do_not_reply = os.getenv("do_not_reply")
-schedulers_email = os.get("schedulers_email")
+schedulers_email = os.getenv("schedulers_email")
 
 
 
@@ -48,8 +48,8 @@ def email(subject, to_email, message, file=None):
     mail_item.Subject = subject
     mail_item.BodyFormat = 1
     mail_item.Body = message
-    mail_item.To = to_email
-    mail_item.From = do_not
+    mail_item.To = schedulers_email
+    mail_item.From = do_not_reply
 
     if file != None:
         if allowed_file(file.filename):
@@ -254,6 +254,6 @@ def referral_successful():
 
 if __name__ == '__main__':
 
-    app.run(host='localhost', debug=True, use_reloader=True, port=5000)
+    app.run(host='localhost', debug=True, use_reloader=True, port=7000)
 
-    # app.run(host='0.0.0.0', debug=True, use_reloader=True)
+    # app.run(host='127.0.0.1', debug=True, use_reloader=True)

@@ -1014,7 +1014,7 @@ textarea:focus {
         cursor: pointer;
         display: none;
     }
-    
+ 
     .home .content h1 {
         font-size: 8rem;
         color: var(--black);
@@ -1045,6 +1045,14 @@ textarea:focus {
         padding-left: 6rem;
         color: #666;
     }
+
+    .about ul {
+        list-style:none;
+        font-size: 4rem;
+        color: var(--black);
+        text-align: center;
+    }
+   
     
     .facility {
         min-height: 30vh;
