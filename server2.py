@@ -42,7 +42,6 @@ def email(subject, to_email, message, file=None):
     outlook_object = outlook_app.GetNameSpace('MAPI')
 
 
-    print(message)
     # constructing the email item object
     mail_item = outlook_app.CreateItem(0)
 
@@ -50,7 +49,7 @@ def email(subject, to_email, message, file=None):
     mail_item.BodyFormat = 1
     mail_item.Body = message
     mail_item.To = to_email
-    # mail_item.From = 'j.pitman@nioa.gr'
+    mail_item.From = do_not
 
     if file != None:
         if allowed_file(file.filename):
@@ -58,7 +57,6 @@ def email(subject, to_email, message, file=None):
 
             #replace with destination location on hosting site
             mail_item.Attachments.Add(r'C:\Users\jpitman\Desktop\SleepClinicLandingPage\static\upload' + '/' + file.filename)
-            print('app.request_class type ==',type(app.request_class))
             inputStream = open(r'C:\Users\jpitman\Desktop\SleepClinicLandingPage\static\upload' + '/' + file.filename, 'rb')
             blankStream = open(r'C:\Users\jpitman\Desktop\SleepClinicLandingPage\static\upload\blank.pdf', 'rb')
             output = PdfWriter()
@@ -86,7 +84,7 @@ def call_request_message_to_schedulers(fname, lname, date_of_birth, phone, pt_em
     """creating the call request email to send to the schedulers"""
 
     subject = f"SECURE: Phone Call Request: {day_of_week} at {time_selection}"
-    to_email = "email_to_schedulers@outlook.com"
+    to_email = schedulers_email
 
 
     # Create the plain-text and HTML version of  message
@@ -165,7 +163,7 @@ def referral_message_to_schedulers(fname, lname, phone, reason, referring, clini
     """creating the referral email to send to the schedulers"""
 
     subject = f"SECURE: Referral: From {referring} at {clinic}"
-    to_email = "email_to_schedulers@outlook.com"
+    to_email = schedulers_email
     message = message = f"""
     A referral has been placed:
 
